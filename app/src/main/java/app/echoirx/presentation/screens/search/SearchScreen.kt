@@ -37,6 +37,7 @@ import androidx.compose.material3.TooltipBox
 import androidx.compose.material3.TooltipDefaults
 import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -65,6 +66,8 @@ import app.echoirx.presentation.components.TrackBottomSheet
 import app.echoirx.presentation.navigation.Route
 import app.echoirx.presentation.screens.search.components.FilterBottomSheet
 import app.echoirx.presentation.screens.search.components.SearchResultItem
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.collectLatest
 
 @OptIn(ExperimentalMaterial3ExpressiveApi::class, ExperimentalMaterial3Api::class)
 @Composable
@@ -79,10 +82,25 @@ fun SearchScreen(
     val focusManager = LocalFocusManager.current
     val focusRequester = remember { FocusRequester() }
     val coroutineScope = rememberCoroutineScope()
+    val sameTapActionFlow = navController.currentBackStackEntry
+        ?.savedStateHandle
+        ?.getMutableStateFlow("triggerSameTap", false)
+        ?: remember { MutableStateFlow(false) }
 
     var selectedTrack by remember { mutableStateOf<SearchResult?>(null) }
     var showBottomSheet by remember { mutableStateOf(false) }
     var showFilterBottomSheet by remember { mutableStateOf(false) }
+
+    LaunchedEffect(sameTapActionFlow) {
+        sameTapActionFlow.collectLatest {
+            if (it) {
+                focusRequester.requestFocus()
+                sameTapActionFlow.value = false
+                navController.currentBackStackEntry?.savedStateHandle
+                    ?.remove<Boolean>("triggerSameTap")
+            }
+        }
+    }
 
     Column(
         modifier = Modifier

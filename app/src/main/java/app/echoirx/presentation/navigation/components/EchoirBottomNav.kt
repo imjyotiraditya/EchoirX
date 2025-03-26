@@ -32,12 +32,17 @@ fun EchoirBottomNav(
             NavigationBarItem(
                 selected = isSelected,
                 onClick = {
-                    navController.navigate(item.route) {
-                        popUpTo(navController.graph.findStartDestination().id) {
-                            saveState = true
+                    if (isSelected) {
+                        navController.currentBackStackEntry?.savedStateHandle
+                            ?.set("triggerSameTap", true)
+                    } else {
+                        navController.navigate(item.route) {
+                            popUpTo(navController.graph.findStartDestination().id) {
+                                saveState = true
+                            }
+                            launchSingleTop = true
+                            restoreState = true
                         }
-                        launchSingleTop = true
-                        restoreState = true
                     }
                 },
                 icon = {
