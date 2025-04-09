@@ -24,7 +24,7 @@ material3 = "1.4.0-alpha11"
 navigation-compose = "2.9.0-alpha09"
 room-ktx = "2.7.0-rc03"
 taglib = "1.0.0-alpha25"
-ui = "1.8.0-rc02"
+ui = "1.8.0-rc03"
 work-runtime-ktx = "2.10.0"
 
 [libraries]
