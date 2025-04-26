@@ -36,40 +36,8 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  pr-build-check:
-    runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'pull_request' }}
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up JDK
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-
-      - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
-        with:
-          cache-disabled: true
-
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-
-      - name: Test build with Gradle
-        run: ./gradlew assembleRelease
-
-      - name: Auto-merge if build succeeds and actor is Dependabot
-        if: ${{ success() && github.actor == 'dependabot[bot]' }}
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh pr merge --auto --rebase "${{ github.event.pull_request.html_url }}"
-
   build:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'workflow_dispatch' }}
 
     steps:
       - name: Checkout code
@@ -90,7 +58,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Decode Keystore
-        if: ${{ inputs.release }}
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.release }}
         env:
           ENCODED_KEYSTORE: ${{ secrets.KEYSTORE_BASE64 }}
         run: |
@@ -98,16 +66,15 @@ jobs:
           echo -n "${ENCODED_KEYSTORE}" | base64 --decode > "${RUNNER_TEMP}/panda.jks"
 
       - name: Create release keystore
-        if: ${{ inputs.release }}
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.release }}
         run: |
           echo "STORE_FILE=${RUNNER_TEMP}/panda.jks" > keystore.properties
           echo "STORE_PASSWORD=${{ secrets.KEYSTORE_PASSWORD }}" >> keystore.properties
           echo "KEY_ALIAS=${{ secrets.KEY_ALIAS }}" >> keystore.properties
           echo "KEY_PASSWORD=${{ secrets.KEY_PASSWORD }}" >> keystore.properties
-          echo "API_KEY=${{ secrets.API_KEY }}" >> keystore.properties
 
       - name: Create debug keystore
-        if: ${{ !inputs.release }}
+        if: ${{ github.event_name == 'workflow_dispatch' && !inputs.release }}
         run: |
           mkdir -p "${RUNNER_TEMP}"
           keytool -genkey -v -keystore "${RUNNER_TEMP}/debug.keystore" \
@@ -123,8 +90,14 @@ jobs:
       - name: Build Release APKs
         run: ./gradlew assembleRelease
 
+      - name: Auto-merge if build succeeds and actor is Renovate
+        if: ${{ success() && github.event_name == 'pull_request' && github.actor == 'renovate[bot]' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh pr merge --auto --rebase "${{ github.event.pull_request.html_url }}"
+
       - name: Upload APKs as Artifact
-        if: ${{ !inputs.release }}
+        if: ${{ github.event_name == 'workflow_dispatch' && !inputs.release }}
         uses: actions/upload-artifact@v4
         with:
           name: echoir-${{ inputs.abi }}-apks
@@ -133,7 +106,7 @@ jobs:
           retention-days: 7
 
       - name: Create Release
-        if: ${{ inputs.release }}
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.release }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: |

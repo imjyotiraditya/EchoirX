@@ -1,0 +1,48 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "packageRules": [
+    {
+      "matchManagers": [
+        "gradle"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "commitMessagePrefix": "build(deps):",
+      "commitMessageAction": "Bump",
+      "commitMessageTopic": "{{depName}}",
+      "commitMessageExtra": "from {{currentVersion}} to {{newVersion}}",
+      "labels": [
+        "dependencies"
+      ]
+    },
+    {
+      "matchManagers": [
+        "gradle-wrapper"
+      ],
+      "commitMessagePrefix": "build(gradle):",
+      "commitMessageAction": "Bump",
+      "commitMessageTopic": "gradle wrapper",
+      "commitMessageExtra": "from {{currentVersion}} to {{newVersion}}",
+      "labels": [
+        "dependencies"
+      ]
+    },
+    {
+      "matchManagers": [
+        "github-actions"
+      ],
+      "commitMessagePrefix": "ci(actions):",
+      "commitMessageAction": "Bump",
+      "commitMessageTopic": "{{depName}}",
+      "commitMessageExtra": "from {{currentVersion}} to {{newVersion}}",
+      "labels": [
+        "dependencies"
+      ]
+    }
+  ]
+}
