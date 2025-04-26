@@ -1,0 +1,32 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "packageRules": [
+    {
+      "matchManagers": ["gradle"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true,
+      "commitMessagePrefix": "build",
+      "commitMessageAction": "update",
+      "labels": ["dependencies"]
+    },
+    {
+      "matchManagers": ["gradle-wrapper"],
+      "commitMessagePrefix": "build(gradle)",
+      "commitMessageAction": "update",
+      "commitMessageTopic": "gradle wrapper",
+      "commitMessageExtra": "from {{currentVersion}} to {{newVersion}}",
+      "labels": ["dependencies"]
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "automerge": true,
+      "commitMessagePrefix": "ci",
+      "commitMessageAction": "update",
+      "labels": ["dependencies"]
+    }
+  ],
+  "schedule": ["before 3am on the first day of the month"]
+}
