@@ -1,6 +1,11 @@
 package app.echoirx.presentation.screens.search
 
 import androidx.annotation.StringRes
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Hd
+import androidx.compose.material.icons.outlined.HighQuality
+import androidx.compose.material.icons.outlined.SurroundSound
+import androidx.compose.ui.graphics.vector.ImageVector
 import app.echoirx.R
 import app.echoirx.domain.model.SearchHistoryItem
 import app.echoirx.domain.model.SearchResult
@@ -41,11 +46,12 @@ enum class SearchContentFilter(
 
 enum class SearchQuality(
     @param:StringRes val label: Int,
-    val format: String
+    val format: String,
+    val icon: ImageVector
 ) {
-    HIRES(R.string.quality_label_hires, "HIRES_LOSSLESS"),
-    LOSSLESS(R.string.quality_label_lossless, "LOSSLESS"),
-    ATMOS(R.string.label_dolby_atmos, "DOLBY_ATMOS"),
+    HIRES(R.string.quality_label_hires, "HIRES_LOSSLESS", Icons.Outlined.HighQuality),
+    LOSSLESS(R.string.quality_label_lossless, "LOSSLESS", Icons.Outlined.Hd),
+    ATMOS(R.string.label_dolby_atmos, "DOLBY_ATMOS", Icons.Outlined.SurroundSound),
 }
 
 sealed class SearchStatus {

@@ -27,7 +27,6 @@ import androidx.compose.material.icons.outlined.RestartAlt
 import androidx.compose.material.icons.outlined.TextFormat
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -46,6 +45,7 @@ import app.echoirx.BuildConfig
 import app.echoirx.R
 import app.echoirx.data.utils.extensions.toDisplayPath
 import app.echoirx.domain.model.Region
+import app.echoirx.presentation.components.ThumbSwitch
 import app.echoirx.presentation.components.preferences.PreferenceCategory
 import app.echoirx.presentation.components.preferences.PreferenceItem
 import app.echoirx.presentation.components.preferences.PreferencePosition
@@ -254,7 +254,7 @@ fun SettingsScreen(
                 icon = Icons.Outlined.Image,
                 position = PreferencePosition.Middle,
                 trailingContent = {
-                    Switch(
+                    ThumbSwitch(
                         checked = state.saveCoverArt,
                         onCheckedChange = { viewModel.updateSaveCoverArt(it) }
                     )
@@ -269,7 +269,7 @@ fun SettingsScreen(
                 icon = Icons.Outlined.MusicNote,
                 position = PreferencePosition.Bottom,
                 trailingContent = {
-                    Switch(
+                    ThumbSwitch(
                         checked = state.saveLyrics,
                         onCheckedChange = { viewModel.updateSaveLyrics(it) }
                     )

@@ -10,6 +10,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.DeleteOutline
 import androidx.compose.material.icons.outlined.Error
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.CircularWavyProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
@@ -17,7 +19,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -30,6 +34,7 @@ import app.echoirx.domain.model.QualityConfig
 import app.echoirx.presentation.components.TrackCover
 import java.util.Locale
 
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun DownloadItem(
     download: Download,
@@ -93,14 +98,16 @@ fun DownloadItem(
                             CircularProgressIndicator(
                                 progress = { download.progress / 100f },
                                 modifier = Modifier.size(40.dp),
-                                strokeWidth = 3.dp,
-                                color = MaterialTheme.colorScheme.primary,
+                                strokeWidth = 3.dp
                             )
                         } else {
-                            CircularProgressIndicator(
+                            val stroke = Stroke(
+                                width = with(LocalDensity.current) { 3.dp.toPx() }
+                            )
+                            CircularWavyProgressIndicator(
                                 modifier = Modifier.size(40.dp),
-                                strokeWidth = 3.dp,
-                                color = MaterialTheme.colorScheme.primary
+                                stroke = stroke,
+                                trackStroke = stroke
                             )
                         }
                     }

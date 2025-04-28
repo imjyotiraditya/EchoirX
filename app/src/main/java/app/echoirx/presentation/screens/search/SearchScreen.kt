@@ -22,11 +22,10 @@ import androidx.compose.material.icons.outlined.FilterAlt
 import androidx.compose.material3.ContainedLoadingIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
-import androidx.compose.material3.FilterChip
-import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.InputChip
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.PlainTooltip
 import androidx.compose.material3.SnackbarHostState
@@ -129,7 +128,7 @@ fun SearchScreen(
                     focusedContainerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
                     unfocusedContainerColor = MaterialTheme.colorScheme.surfaceContainerHigh
                 ),
-                shape = MaterialTheme.shapes.small,
+                shape = MaterialTheme.shapes.extraLarge,
                 placeholder = {
                     Text(
                         text = stringResource(
@@ -177,7 +176,7 @@ fun SearchScreen(
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 SearchType.entries.forEach { type ->
-                    FilterChip(
+                    InputChip(
                         selected = state.searchType == type,
                         onClick = {
                             viewModel.onSearchTypeChange(type)
@@ -186,19 +185,16 @@ fun SearchScreen(
                         label = {
                             Text(
                                 text = stringResource(type.title),
-                                style = MaterialTheme.typography.labelLarge
                             )
                         },
-                        border = FilterChipDefaults.filterChipBorder(
-                            enabled = true,
-                            selected = state.searchType == type,
-                            borderColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.5f)
-                        )
+                        shape = MaterialTheme.shapes.extraLarge
                     )
                 }
+
                 Spacer(
                     modifier = Modifier.weight(1f)
                 )
+
                 TooltipBox(
                     positionProvider = TooltipDefaults.rememberTooltipPositionProvider(),
                     tooltip = {

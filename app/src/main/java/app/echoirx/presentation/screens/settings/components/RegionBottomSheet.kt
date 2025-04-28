@@ -1,26 +1,19 @@
 package app.echoirx.presentation.screens.settings.components
 
 import androidx.compose.animation.animateColorAsState
-import androidx.compose.animation.core.animateDpAsState
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.selection.selectable
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.FilterAlt
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
-import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberModalBottomSheetState
@@ -51,55 +44,36 @@ fun RegionBottomSheet(
     ModalBottomSheet(
         onDismissRequest = onDismiss,
         sheetState = sheetState,
-        shape = MaterialTheme.shapes.large,
-        dragHandle = null,
-        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
         modifier = modifier
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 24.dp),
-            verticalArrangement = Arrangement.spacedBy(24.dp)
+                .padding(horizontal = 16.dp)
+                .padding(bottom = 24.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            Column(
+            Box(
                 modifier = Modifier.fillMaxWidth(),
-                verticalArrangement = Arrangement.spacedBy(8.dp)
+                contentAlignment = Alignment.Center
             ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    Icon(
-                        imageVector = Icons.Outlined.FilterAlt,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier.size(24.dp)
-                    )
-
-                    Text(
-                        text = stringResource(R.string.title_region_filter),
-                        style = MaterialTheme.typography.titleMedium
-                    )
-                }
-
                 Text(
-                    text = stringResource(R.string.msg_region_filter_desc),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    text = stringResource(R.string.title_region_filter),
+                    style = MaterialTheme.typography.titleLarge,
+                    modifier = Modifier.padding(vertical = 8.dp)
                 )
             }
 
             LazyColumn(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(64.dp * 4),
+                    .height(64.dp * 5),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 items(Region.entries) { region ->
                     val isSelected = region.code == selectedRegion
+                    val shape = MaterialTheme.shapes.extraLarge
 
-                    // Animate color and elevation changes
                     val backgroundColor by animateColorAsState(
                         targetValue = if (isSelected)
                             MaterialTheme.colorScheme.secondaryContainer
@@ -108,51 +82,43 @@ fun RegionBottomSheet(
                         label = "background color"
                     )
 
-                    val elevation by animateDpAsState(
-                        targetValue = if (isSelected) 4.dp else 1.dp,
-                        label = "elevation"
-                    )
-
                     Surface(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .clip(RoundedCornerShape(12.dp))
+                            .clip(shape)
                             .selectable(
                                 selected = isSelected,
                                 onClick = { onSelectRegion(region.code) },
                                 role = Role.RadioButton
                             ),
                         color = backgroundColor,
-                        shape = RoundedCornerShape(12.dp),
-                        tonalElevation = elevation,
-                        border = if (!isSelected)
-                            BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant)
-                        else null
+                        shape = shape
                     ) {
                         Row(
                             modifier = Modifier.padding(16.dp),
                             verticalAlignment = Alignment.CenterVertically,
                             horizontalArrangement = Arrangement.spacedBy(16.dp)
                         ) {
-                            RadioButton(
-                                selected = isSelected,
-                                onClick = null
+                            Text(
+                                text = region.code,
+                                style = MaterialTheme.typography.bodyLarge,
+                                fontWeight = FontWeight.Bold,
+                                color = if (isSelected)
+                                    MaterialTheme.colorScheme.onSecondaryContainer
+                                else
+                                    MaterialTheme.colorScheme.onSurface
                             )
-                            Column(
-                                modifier = Modifier.weight(1f)
-                            ) {
-                                Text(
-                                    text = Region.getDisplayName(region, context),
-                                    style = MaterialTheme.typography.bodyLarge,
-                                    fontWeight = if (isSelected) FontWeight.SemiBold else FontWeight.Normal
-                                )
 
-                                Text(
-                                    text = region.code,
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    color = MaterialTheme.colorScheme.secondary
-                                )
-                            }
+                            Text(
+                                text = Region.getDisplayName(region, context),
+                                style = MaterialTheme.typography.bodyLarge,
+                                fontWeight = if (isSelected) FontWeight.SemiBold else FontWeight.Normal,
+                                color = if (isSelected)
+                                    MaterialTheme.colorScheme.onSecondaryContainer
+                                else
+                                    MaterialTheme.colorScheme.onSurface,
+                                modifier = Modifier.weight(1f)
+                            )
                         }
                     }
                 }

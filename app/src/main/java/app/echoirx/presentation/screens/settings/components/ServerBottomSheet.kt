@@ -13,7 +13,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Clear
 import androidx.compose.material.icons.outlined.CloudQueue
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -37,7 +39,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import app.echoirx.R
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun ServerBottomSheet(
     currentServer: String,
@@ -63,7 +65,6 @@ fun ServerBottomSheet(
         if (serverUrl.isNotBlank()) {
             val cleanedUrl = cleanUrl(serverUrl)
             onSave(cleanedUrl)
-            onDismiss()
         } else {
             showError = true
             errorMessage = context.getString(R.string.error_empty_server_url)
@@ -73,15 +74,13 @@ fun ServerBottomSheet(
     ModalBottomSheet(
         onDismissRequest = onDismiss,
         sheetState = sheetState,
-        shape = MaterialTheme.shapes.small,
-        dragHandle = null,
-        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
         modifier = modifier
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 24.dp),
+                .padding(horizontal = 16.dp)
+                .padding(bottom = 24.dp),
             verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {
             Column(
@@ -107,8 +106,7 @@ fun ServerBottomSheet(
 
                 Text(
                     text = stringResource(R.string.msg_server_subtitle),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    style = MaterialTheme.typography.bodyMedium
                 )
             }
 
@@ -131,7 +129,6 @@ fun ServerBottomSheet(
                     } else if (serverUrl.contains(" ")) {
                         Text(
                             text = stringResource(R.string.msg_spaces_will_be_removed),
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
                 },
@@ -168,8 +165,8 @@ fun ServerBottomSheet(
                         serverUrl = defaultServerUrl
                         showError = false
                         onReset()
-                        onDismiss()
-                    }
+                    },
+                    shapes = ButtonDefaults.shapes()
                 ) {
                     Text(stringResource(R.string.action_reset_to_default))
                 }
@@ -177,7 +174,8 @@ fun ServerBottomSheet(
                 Spacer(modifier = Modifier.weight(1f))
 
                 Button(
-                    onClick = { validateAndSave() }
+                    onClick = { validateAndSave() },
+                    shapes = ButtonDefaults.shapes(),
                 ) {
                     Text(stringResource(R.string.action_save))
                 }

@@ -4,13 +4,12 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.PlayArrow
 import androidx.compose.material.icons.outlined.Stop
-import androidx.compose.material3.FilterChip
-import androidx.compose.material3.FilterChipDefaults
+import androidx.compose.material3.AssistChip
+import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -31,8 +30,7 @@ fun PreviewButton(
         verticalArrangement = Arrangement.spacedBy(8.dp),
         modifier = Modifier.fillMaxWidth()
     ) {
-        FilterChip(
-            selected = isPlaying,
+        AssistChip(
             onClick = onPreviewClick,
             label = {
                 Text(
@@ -53,21 +51,9 @@ fun PreviewButton(
                         if (isPlaying) R.string.cd_stop_preview
                         else R.string.cd_play_preview
                     ),
-                    modifier = Modifier.size(18.dp)
+                    modifier = Modifier.size(AssistChipDefaults.IconSize)
                 )
-            },
-            colors = FilterChipDefaults.filterChipColors(
-                containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
-                labelColor = MaterialTheme.colorScheme.onSurface,
-                iconColor = MaterialTheme.colorScheme.onSurface,
-                selectedContainerColor = MaterialTheme.colorScheme.surfaceContainerHighest
-            ),
-            border = FilterChipDefaults.filterChipBorder(
-                borderColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.2f),
-                enabled = true,
-                selected = isPlaying
-            ),
-            modifier = Modifier.height(32.dp)
+            }
         )
     }
 }

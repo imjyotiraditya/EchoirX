@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -35,20 +34,20 @@ fun EmptyStateMessage(
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             Surface(
-                shape = RoundedCornerShape(16.dp),
+                shape = MaterialTheme.shapes.extraLarge,
                 color = MaterialTheme.colorScheme.secondaryContainer,
-                modifier = Modifier.padding(bottom = 8.dp)
+                modifier = Modifier
             ) {
                 when {
                     icon != null -> Icon(
                         imageVector = icon,
                         contentDescription = null,
                         modifier = Modifier
-                            .padding(16.dp)
-                            .size(48.dp),
+                            .padding(24.dp)
+                            .size(56.dp),
                         tint = MaterialTheme.colorScheme.onSecondaryContainer
                     )
 
@@ -56,22 +55,26 @@ fun EmptyStateMessage(
                         painter = painter,
                         contentDescription = null,
                         modifier = Modifier
-                            .padding(16.dp)
-                            .size(48.dp),
+                            .padding(24.dp)
+                            .size(56.dp),
                         tint = MaterialTheme.colorScheme.onSecondaryContainer
                     )
                 }
             }
+
             Text(
                 text = title,
                 style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.onSurface
+                color = MaterialTheme.colorScheme.onSurface,
+                textAlign = TextAlign.Center
             )
+
             Text(
                 text = description,
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(horizontal = 24.dp)
             )
         }
     }

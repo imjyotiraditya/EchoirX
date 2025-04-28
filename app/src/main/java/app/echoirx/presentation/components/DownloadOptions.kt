@@ -5,11 +5,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.AssistChip
+import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FilterChip
-import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.PlainTooltip
@@ -58,6 +57,7 @@ fun DownloadOptions(
     }
 
     Column(
+        modifier = Modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         FlowRow(
@@ -80,8 +80,7 @@ fun DownloadOptions(
                     },
                     state = rememberTooltipState()
                 ) {
-                    FilterChip(
-                        selected = false,
+                    AssistChip(
                         onClick = { onOptionSelected(config) },
                         label = {
                             Text(
@@ -96,21 +95,9 @@ fun DownloadOptions(
                                     R.string.cd_download_option,
                                     config.shortLabel
                                 ),
-                                modifier = Modifier.size(18.dp)
+                                modifier = Modifier.size(AssistChipDefaults.IconSize)
                             )
-                        },
-                        colors = FilterChipDefaults.filterChipColors(
-                            containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
-                            labelColor = MaterialTheme.colorScheme.onSurface,
-                            iconColor = MaterialTheme.colorScheme.onSurface,
-                            selectedContainerColor = MaterialTheme.colorScheme.surfaceContainerHighest
-                        ),
-                        border = FilterChipDefaults.filterChipBorder(
-                            borderColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.2f),
-                            enabled = true,
-                            selected = false
-                        ),
-                        modifier = Modifier.height(32.dp)
+                        }
                     )
                 }
             }

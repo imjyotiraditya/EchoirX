@@ -8,7 +8,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -21,7 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun SettingsActionBottomSheet(
     title: String,
@@ -38,15 +40,13 @@ fun SettingsActionBottomSheet(
     ModalBottomSheet(
         onDismissRequest = onDismiss,
         sheetState = sheetState,
-        shape = MaterialTheme.shapes.small,
-        dragHandle = null,
-        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
         modifier = modifier
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 24.dp),
+                .padding(horizontal = 16.dp)
+                .padding(bottom = 24.dp),
             verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {
             Column(
@@ -72,8 +72,7 @@ fun SettingsActionBottomSheet(
 
                 Text(
                     text = description,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    style = MaterialTheme.typography.bodyMedium
                 )
             }
 
@@ -82,7 +81,8 @@ fun SettingsActionBottomSheet(
                 horizontalArrangement = Arrangement.spacedBy(16.dp, Alignment.End)
             ) {
                 FilledTonalButton(
-                    onClick = onDismiss
+                    onClick = onDismiss,
+                    shapes = ButtonDefaults.shapes()
                 ) {
                     Text(cancelText)
                 }
@@ -92,8 +92,8 @@ fun SettingsActionBottomSheet(
                 Button(
                     onClick = {
                         onConfirm()
-                        onDismiss()
-                    }
+                    },
+                    shapes = ButtonDefaults.shapes()
                 ) {
                     Text(confirmText)
                 }
