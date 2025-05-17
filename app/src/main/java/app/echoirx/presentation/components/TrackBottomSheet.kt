@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.PlayArrow
 import androidx.compose.material.icons.outlined.Stop
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.HorizontalDivider
@@ -40,6 +41,7 @@ fun TrackBottomSheet(
     onDownload: (QualityConfig) -> Unit,
     onPreviewClick: () -> Unit = {},
     isPreviewPlaying: Boolean = false,
+    previewProgress: Float = 0f,
     showPreviewButton: Boolean = false,
     onDismiss: () -> Unit
 ) {
@@ -70,29 +72,43 @@ fun TrackBottomSheet(
                     )
 
                     if (showPreviewButton) {
-                        FilledIconButton(
-                            onClick = onPreviewClick,
+                        Box(
                             modifier = Modifier
                                 .size(32.dp)
                                 .align(Alignment.BottomEnd)
-                                .offset(x = 8.dp, y = 8.dp),
-                            colors = IconButtonDefaults.filledIconButtonColors(
-                                containerColor = MaterialTheme.colorScheme.primaryContainer,
-                                contentColor = MaterialTheme.colorScheme.onPrimaryContainer
-                            ),
-                            shape = MaterialTheme.shapes.medium
+                                .offset(x = 8.dp, y = 8.dp)
                         ) {
-                            Icon(
-                                imageVector = if (isPreviewPlaying)
-                                    Icons.Outlined.Stop
-                                else
-                                    Icons.Outlined.PlayArrow,
-                                contentDescription = stringResource(
-                                    if (isPreviewPlaying) R.string.cd_stop_preview
-                                    else R.string.cd_play_preview
+                            if (isPreviewPlaying) {
+                                CircularProgressIndicator(
+                                    progress = { previewProgress },
+                                    modifier = Modifier.size(32.dp),
+                                    trackColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.4f),
+                                    color = MaterialTheme.colorScheme.primaryContainer,
+                                    strokeWidth = 3.dp
+                                )
+                            }
+
+                            FilledIconButton(
+                                onClick = onPreviewClick,
+                                modifier = Modifier.size(32.dp),
+                                colors = IconButtonDefaults.filledIconButtonColors(
+                                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                                    contentColor = MaterialTheme.colorScheme.onPrimaryContainer
                                 ),
-                                modifier = Modifier.size(16.dp)
-                            )
+                                shape = MaterialTheme.shapes.medium
+                            ) {
+                                Icon(
+                                    imageVector = if (isPreviewPlaying)
+                                        Icons.Outlined.Stop
+                                    else
+                                        Icons.Outlined.PlayArrow,
+                                    contentDescription = stringResource(
+                                        if (isPreviewPlaying) R.string.cd_stop_preview
+                                        else R.string.cd_play_preview
+                                    ),
+                                    modifier = Modifier.size(16.dp)
+                                )
+                            }
                         }
                     }
                 }

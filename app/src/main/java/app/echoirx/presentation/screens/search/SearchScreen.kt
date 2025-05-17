@@ -84,6 +84,7 @@ fun SearchScreen(
     var showBottomSheet by remember { mutableStateOf(false) }
     var showFilterBottomSheet by remember { mutableStateOf(false) }
     val isPreviewPlaying by viewModel.isPreviewPlaying.collectAsState()
+    val previewProgress by viewModel.previewProgress.collectAsState()
 
     LaunchedEffect(Unit) {
         navController.currentBackStackEntry?.savedStateHandle?.let { savedState ->
@@ -360,6 +361,7 @@ fun SearchScreen(
                 }
             },
             isPreviewPlaying = isPreviewPlaying,
+            previewProgress = previewProgress,
             showPreviewButton = true,
             onDismiss = {
                 viewModel.stopTrackPreview()

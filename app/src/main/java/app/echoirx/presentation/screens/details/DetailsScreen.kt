@@ -58,6 +58,7 @@ fun DetailsScreen(
     var selectedTrack by remember { mutableStateOf<SearchResult?>(null) }
     var showBottomSheet by remember { mutableStateOf(false) }
     val isPreviewPlaying by viewModel.isPreviewPlaying.collectAsState()
+    val previewProgress by viewModel.previewProgress.collectAsState()
 
     LaunchedEffect(result) {
         viewModel.initializeWithItem(result)
@@ -270,6 +271,7 @@ fun DetailsScreen(
                 }
             },
             isPreviewPlaying = isPreviewPlaying,
+            previewProgress = previewProgress,
             showPreviewButton = true,
             onDismiss = {
                 viewModel.stopTrackPreview()

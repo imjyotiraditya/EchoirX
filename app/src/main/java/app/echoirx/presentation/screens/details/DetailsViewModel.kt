@@ -30,6 +30,7 @@ class DetailsViewModel @Inject constructor(
     val state: StateFlow<DetailsState> = _state.asStateFlow()
 
     val isPreviewPlaying = audioPreviewPlayer.isPlaying
+    val previewProgress = audioPreviewPlayer.progress
 
     fun initializeWithItem(item: SearchResult) {
         _state.update { it.copy(item = item) }
@@ -58,7 +59,6 @@ class DetailsViewModel @Inject constructor(
                 val tracks = state.value.tracks
                 val isExplicit = tracks.any { it.explicit }
 
-                // Create album directory first
                 val albumDirectory =
                     downloadRepository.createAlbumDirectory(album.title, isExplicit)
 

@@ -39,6 +39,7 @@ class SearchViewModel @Inject constructor(
     val state: StateFlow<SearchState> = _state.asStateFlow()
 
     val isPreviewPlaying = audioPreviewPlayer.isPlaying
+    val previewProgress = audioPreviewPlayer.progress
 
     init {
         loadSearchHistory()
@@ -158,7 +159,6 @@ class SearchViewModel @Inject constructor(
 
                 val serverUrl = settingsUseCase.getServerUrl()
 
-                // Check if using example server before attempting network request
                 if (serverUrl.contains("example.com")) {
                     _state.update {
                         it.copy(
@@ -189,7 +189,6 @@ class SearchViewModel @Inject constructor(
                     )
                 }
             } catch (e: Exception) {
-                // Check if the error might be related to the example server
                 val serverUrl = settingsUseCase.getServerUrl()
                 val isExampleServer = serverUrl.contains("example.com") ||
                         e.message?.contains("example.com") == true
