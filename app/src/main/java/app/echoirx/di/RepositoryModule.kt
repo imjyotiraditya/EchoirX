@@ -5,6 +5,7 @@ import app.echoirx.data.local.dao.DownloadDao
 import app.echoirx.data.local.dao.SearchHistoryDao
 import app.echoirx.data.media.AudioPreviewPlayer
 import app.echoirx.data.media.FFmpegProcessor
+import app.echoirx.data.media.MediaSessionManager
 import app.echoirx.data.media.MetadataManager
 import app.echoirx.data.notification.DownloadNotificationManager
 import app.echoirx.data.permission.PermissionsManager
@@ -55,6 +56,12 @@ object RepositoryModule {
     fun providePermissionsManager(
         @ApplicationContext context: Context
     ): PermissionsManager = PermissionsManager(context)
+
+    @Provides
+    @Singleton
+    fun provideMediaSessionManager(
+        @ApplicationContext context: Context
+    ): MediaSessionManager = MediaSessionManager(context)
 
     @Provides
     @Singleton

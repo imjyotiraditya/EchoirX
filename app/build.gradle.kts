@@ -177,6 +177,8 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.coroutines.core)
 
+    implementation("androidx.media3:media3-common:1.2.0")
+
     // Database
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)

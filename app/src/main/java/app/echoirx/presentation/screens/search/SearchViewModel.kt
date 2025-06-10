@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.echoirx.R
 import app.echoirx.data.media.AudioPreviewPlayer
+import app.echoirx.data.media.MediaSessionManager
+import app.echoirx.data.permission.PermissionsManager
 import app.echoirx.domain.model.DownloadRequest
 import app.echoirx.domain.model.QualityConfig
 import app.echoirx.domain.model.SearchHistoryItem
@@ -33,16 +35,56 @@ class SearchViewModel @Inject constructor(
     private val processDownloadUseCase: ProcessDownloadUseCase,
     private val settingsUseCase: SettingsUseCase,
     private val audioPreviewPlayer: AudioPreviewPlayer,
+    private val mediaSessionManager: MediaSessionManager,
+    private val permissionsManager: PermissionsManager,
     @param:ApplicationContext private val context: Context
 ) : ViewModel() {
     private val _state = MutableStateFlow(SearchState())
     val state: StateFlow<SearchState> = _state.asStateFlow()
 
     val isPreviewPlaying = audioPreviewPlayer.isPlaying
+    val currentMediaInfo = mediaSessionManager.currentMediaInfo
+    val hasMediaPermission = mediaSessionManager.hasMediaPermission
 
     init {
         loadSearchHistory()
         setupQueryListener()
+        initializeMediaSession()
+    }
+
+    private fun initializeMediaSession() {
+        viewModelScope.launch {
+            if (permissionsManager.hasNotificationListenerPermission()) {
+                try {
+                    mediaSessionManager.startMonitoring()
+                    mediaSessionManager.registerCallbackForActiveControllers()
+                } catch (e: SecurityException) {
+                    Log.w("SearchViewModel", "Failed to start media monitoring", e)
+                }
+            }
+        }
+    }
+
+    fun searchCurrentMedia() {
+        viewModelScope.launch {
+            val mediaInfo = currentMediaInfo.value
+            if (mediaInfo != null && mediaInfo.isPlaying) {
+                val searchQuery = mediaInfo.getSearchQuery()
+                if (searchQuery.isNotEmpty()) {
+                    _state.update {
+                        it.copy(
+                            query = searchQuery,
+                            searchType = SearchType.TRACKS
+                        )
+                    }
+                    search()
+                }
+            }
+        }
+    }
+
+    fun checkMediaPermissions(): Boolean {
+        return permissionsManager.hasNotificationListenerPermission()
     }
 
     private fun loadSearchHistory() {
@@ -278,5 +320,6 @@ class SearchViewModel @Inject constructor(
     override fun onCleared() {
         super.onCleared()
         audioPreviewPlayer.stop()
+        mediaSessionManager.stopMonitoring()
     }
 }
