@@ -107,6 +107,11 @@
     <string name="msg_no_search_history_desc">Your recent searches will appear here</string>
     <string name="msg_clear_search_history_subtitle">Remove all your saved searches</string>
 
+    <!-- Media Session -->
+    <string name="msg_media_permission_granted">Media access permission granted</string>
+    <string name="msg_no_media_playing">No media currently playing</string>
+    <string name="msg_searching_current_media">Searching for: %s</string>
+
     <!-- Notifications -->
     <string name="notification_channel_name">Downloads</string>
     <string name="notification_channel_desc">Track download notifications</string>
@@ -176,12 +181,4 @@
     <!-- Errors -->
     <string name="error_empty_server_url">Server URL cannot be empty</string>
     <string name="error_example_server">Cannot connect to example server. Please configure a real server URL in Settings.</string>
-
-    <string name="cd_search_current_media">Search current playing media</string>
-    <string name="msg_media_permission_granted">Media access permission granted</string>
-    <string name="msg_media_permission_required">Permission required to access current playing media</string>
-    <string name="title_media_permission_dialog">Media Access Permission</string>
-    <string name="msg_media_permission_dialog">To search for currently playing music, please enable notification access for this app in Settings.</string>
-    <string name="msg_no_media_playing">No media currently playing</string>
-    <string name="msg_searching_current_media">Searching for: %s</string>
 </resources>
