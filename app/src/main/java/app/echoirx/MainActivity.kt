@@ -27,18 +27,19 @@ class MainActivity : ComponentActivity() {
 
     private val allFilesAccessLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
+    ) {
+        checkAndRequestNotificationListenerAccess()
+    }
+
+    private val notificationListenerLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
     ) {}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        // Request permissions
-        if (!permissionsManager.arePermissionsGranted()) {
-            permissionsLauncher.launch(permissionsManager.requiredPermissions)
-        } else {
-            checkAndRequestAllFilesAccess()
-        }
+        requestPermissions()
 
         setContent {
             val navController = rememberNavController()
@@ -49,11 +50,28 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    private fun requestPermissions() {
+        if (!permissionsManager.arePermissionsGranted()) {
+            permissionsLauncher.launch(permissionsManager.requiredPermissions)
+        } else {
+            checkAndRequestAllFilesAccess()
+        }
+    }
+
     private fun checkAndRequestAllFilesAccess() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && !Environment.isExternalStorageManager()) {
             permissionsManager.getAllFilesAccessIntent()?.let { intent ->
                 allFilesAccessLauncher.launch(intent)
             }
+        } else {
+            checkAndRequestNotificationListenerAccess()
+        }
+    }
+
+    private fun checkAndRequestNotificationListenerAccess() {
+        if (!permissionsManager.hasNotificationListenerPermission()) {
+            val intent = permissionsManager.getNotificationListenerSettingsIntent()
+            notificationListenerLauncher.launch(intent)
         }
     }
 }

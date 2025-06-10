@@ -1,7 +1,6 @@
 package app.echoirx.data.permission
 
 import android.Manifest
-import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -10,7 +9,6 @@ import android.provider.Settings
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
-import app.echoirx.data.media.MediaNotificationListener
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -71,14 +69,5 @@ class PermissionsManager @Inject constructor(
 
     fun getNotificationListenerSettingsIntent(): Intent {
         return Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS)
-    }
-
-    fun isMediaNotificationListenerEnabled(): Boolean {
-        val componentName = ComponentName(context, MediaNotificationListener::class.java)
-        val enabledServices = Settings.Secure.getString(
-            context.contentResolver,
-            "enabled_notification_listeners"
-        )
-        return enabledServices?.contains(componentName.flattenToString()) == true
     }
 }

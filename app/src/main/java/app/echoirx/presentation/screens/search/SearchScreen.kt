@@ -1,7 +1,5 @@
 package app.echoirx.presentation.screens.search
 
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -21,6 +19,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.CloudOff
 import androidx.compose.material.icons.outlined.Error
 import androidx.compose.material.icons.outlined.FilterAlt
+import androidx.compose.material.icons.outlined.MusicNote
+import androidx.compose.material.icons.outlined.MusicOff
+import androidx.compose.material.icons.outlined.NotificationsOff
 import androidx.compose.material3.ContainedLoadingIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
@@ -59,9 +60,7 @@ import app.echoirx.data.permission.PermissionsManager
 import app.echoirx.data.utils.extensions.formatErrorMessage
 import app.echoirx.data.utils.extensions.showSnackbar
 import app.echoirx.domain.model.SearchResult
-import app.echoirx.presentation.components.CurrentMediaButton
 import app.echoirx.presentation.components.EmptyStateMessage
-import app.echoirx.presentation.components.MediaPermissionDialog
 import app.echoirx.presentation.components.TrackBottomSheet
 import app.echoirx.presentation.navigation.NavConstants
 import app.echoirx.presentation.navigation.Route
@@ -88,23 +87,9 @@ fun SearchScreen(
     var selectedTrack by remember { mutableStateOf<SearchResult?>(null) }
     var showBottomSheet by remember { mutableStateOf(false) }
     var showFilterBottomSheet by remember { mutableStateOf(false) }
-    var showPermissionDialog by remember { mutableStateOf(false) }
     val isPreviewPlaying by viewModel.isPreviewPlaying.collectAsState()
     val currentMediaInfo by viewModel.currentMediaInfo.collectAsState()
     val hasMediaPermission by viewModel.hasMediaPermission.collectAsState()
-
-    // Permission launcher for notification listener
-    val permissionLauncher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.StartActivityForResult()
-    ) {
-        // Check if permission was granted after returning from settings
-        if (viewModel.checkMediaPermissions()) {
-            snackbarHostState.showSnackbar(
-                scope = coroutineScope,
-                message = context.getString(R.string.msg_media_permission_granted)
-            )
-        }
-    }
 
     LaunchedEffect(Unit) {
         navController.currentBackStackEntry?.savedStateHandle?.let { savedState ->
@@ -194,6 +179,43 @@ fun SearchScreen(
                 )
 
                 IconButton(
+                    onClick = {
+                        when {
+                            !hasMediaPermission -> {
+                                val intent = PermissionsManager(context).getNotificationListenerSettingsIntent()
+                                context.startActivity(intent)
+                            }
+                            currentMediaInfo?.isPlaying == true -> {
+                                viewModel.searchCurrentMedia()
+                                focusManager.clearFocus()
+                                snackbarHostState.showSnackbar(
+                                    scope = coroutineScope,
+                                    message = context.getString(
+                                        R.string.msg_searching_current_media,
+                                        currentMediaInfo?.getDisplayText() ?: ""
+                                    )
+                                )
+                            }
+                            else -> {
+                                snackbarHostState.showSnackbar(
+                                    scope = coroutineScope,
+                                    message = context.getString(R.string.msg_no_media_playing)
+                                )
+                            }
+                        }
+                    }
+                ) {
+                    Icon(
+                        imageVector = when {
+                            !hasMediaPermission -> Icons.Outlined.NotificationsOff
+                            currentMediaInfo?.isPlaying == true -> Icons.Outlined.MusicNote
+                            else -> Icons.Outlined.MusicOff
+                        },
+                        contentDescription = null
+                    )
+                }
+
+                IconButton(
                     onClick = { showFilterBottomSheet = true }
                 ) {
                     Icon(
@@ -205,8 +227,7 @@ fun SearchScreen(
 
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                verticalAlignment = Alignment.CenterVertically
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 SearchType.entries.forEach { type ->
                     InputChip(
@@ -226,41 +247,6 @@ fun SearchScreen(
 
                 Spacer(
                     modifier = Modifier.weight(1f)
-                )
-
-                // Current Media Button positioned after search chips
-                CurrentMediaButton(
-                    currentMedia = currentMediaInfo,
-                    hasPermission = hasMediaPermission,
-                    onClick = {
-                        when {
-                            !hasMediaPermission -> {
-                                // Show permission dialog
-                                showPermissionDialog = true
-                            }
-
-                            currentMediaInfo?.isPlaying == true -> {
-                                // Search for current media
-                                viewModel.searchCurrentMedia()
-                                focusManager.clearFocus()
-                                snackbarHostState.showSnackbar(
-                                    scope = coroutineScope,
-                                    message = context.getString(
-                                        R.string.msg_searching_current_media,
-                                        currentMediaInfo?.getDisplayText() ?: ""
-                                    )
-                                )
-                            }
-
-                            else -> {
-                                // No media playing
-                                snackbarHostState.showSnackbar(
-                                    scope = coroutineScope,
-                                    message = context.getString(R.string.msg_no_media_playing)
-                                )
-                            }
-                        }
-                    }
                 )
             }
         }
@@ -444,16 +430,6 @@ fun SearchScreen(
                 viewModel.onSearchContentFilterRemoved(contentFilter)
             },
             onDismiss = { showFilterBottomSheet = false }
-        )
-    }
-
-    if (showPermissionDialog) {
-        MediaPermissionDialog(
-            onDismiss = { showPermissionDialog = false },
-            onOpenSettings = {
-                val intent = PermissionsManager(context).getNotificationListenerSettingsIntent()
-                permissionLauncher.launch(intent)
-            }
         )
     }
 }
