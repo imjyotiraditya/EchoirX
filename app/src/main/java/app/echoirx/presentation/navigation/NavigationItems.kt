@@ -5,24 +5,24 @@ import androidx.annotation.StringRes
 import app.echoirx.R
 
 data class NavigationItem(
-    val route: String,
+    val route: Route,
     @param:DrawableRes val icon: Int,
     @param:StringRes val label: Int
 )
 
 val navigationItems = listOf(
     NavigationItem(
-        route = Route.Home.path,
+        route = Route.HomeNavigator,
         icon = R.drawable.ic_home,
         label = R.string.nav_home
     ),
     NavigationItem(
-        route = Route.Search.Main.path,
+        route = Route.SearchNavigator,
         icon = R.drawable.ic_search,
         label = R.string.nav_search
     ),
     NavigationItem(
-        route = Route.Settings.path,
+        route = Route.SettingsNavigator,
         icon = R.drawable.ic_settings,
         label = R.string.nav_settings
     )

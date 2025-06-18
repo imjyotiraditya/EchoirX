@@ -350,8 +350,8 @@ fun SearchScreen(
                                                 ?.savedStateHandle
                                                 ?.set("result", result)
                                             navController.navigate(
-                                                Route.Search.Details().createPath(
-                                                    type = state.searchType.name,
+                                                Route.SearchNavigator.Details(
+                                                    type = state.searchType,
                                                     id = result.id
                                                 )
                                             )
