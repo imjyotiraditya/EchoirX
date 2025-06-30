@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- اسم التطبيق -->
+    <string name="app_name">EchoirX</string>
+
+    <!-- التنقل -->
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_settings">الإعدادات</string>
+    <string name="nav_search">بحث</string>
+    <string name="nav_details">تفاصيل</string>
+
+    <!-- أوصاف المحتوى -->
+    <string name="cd_back_button">الرجوع</string>
+    <string name="cd_error">خطأ</string>
+    <string name="cd_search">بحث</string>
+    <string name="cd_clear_search">مسح البحث</string>
+    <string name="cd_filter_button">تصفية النتائج</string>
+    <string name="cd_download_button">خيارات التنزيل</string>
+    <string name="cd_download_option">خيار التنزيل: %s</string>
+    <string name="cd_explicit_content">محتوى صريح</string>
+    <string name="cd_dolby_atmos">يدعم Dolby Atmos</string>
+    <string name="cd_track_image">صورة المسار</string>
+    <string name="cd_filter_quality">خيارات تصفية الجودة</string>
+    <string name="cd_filter_content">خيارات تصفية المحتوى</string>
+    <string name="cd_play">تشغيل</string>
+    <string name="cd_delete">حذف</string>
+    <string name="cd_share">مشاركة</string>
+    <string name="cd_history">السجل</string>
+    <string name="cd_play_preview">تشغيل معاينة</string>
+    <string name="cd_stop_preview">إيقاف المعاينة</string>
+    <string name="cd_retry">إعادة المحاولة</string>
+    <string name="cd_delete_search">حذف البحث</string>
+    <string name="cd_clear">مسح</string>
+
+    <!-- التسميات -->
+    <string name="label_explicit">صريح</string>
+    <string name="label_dolby_atmos">Dolby Atmos</string>
+    <string name="label_dolby">Dolby</string>
+    <string name="label_aac">AAC</string>
+    <string name="label_tracks">المسارات</string>
+    <string name="label_albums">الألبومات</string>
+    <string name="label_clean">نظيف</string>
+    <string name="label_unknown">غير معروف</string>
+    <string name="label_queued">قيد الانتظار</string>
+    <string name="label_server_url">رابط الخادم</string>
+    <string name="label_processing">جارٍ المعالجة</string>
+    <string name="label_completed">اكتمل</string>
+    <string name="label_failed">فشل</string>
+    <string name="label_file_missing">الملف مفقود</string>
+    <string name="label_deleted">تم الحذف</string>
+
+    <!-- العناوين -->
+    <string name="title_active_downloads">التنزيلات النشطة</string>
+    <string name="title_download_history">سجل التنزيل</string>
+    <string name="title_file_naming_format">تنسيق تسمية الملفات</string>
+    <string name="title_storage">التخزين</string>
+    <string name="title_data">البيانات</string>
+    <string name="title_about">حول</string>
+    <string name="title_quality">الجودة</string>
+    <string name="title_content">المحتوى</string>
+    <string name="title_download_location">مكان التنزيل</string>
+    <string name="title_server">الخادم</string>
+    <string name="title_server_recommendation">مطلوب إعداد الخادم</string>
+    <string name="title_clear_data">مسح البيانات</string>
+    <string name="title_reset_settings">إعادة ضبط الإعدادات</string>
+    <string name="title_filter_options">خيارات التصفية</string>
+    <string name="title_recent_searches">البحث الأخير</string>
+    <string name="title_suggestions">الاقتراحات</string>
+    <string name="title_clear_search_history">مسح سجل البحث</string>
+    <string name="title_save_cover_art">حفظ غلاف الألبوم</string>
+    <string name="title_save_lyrics">حفظ الكلمات</string>
+    <string name="title_include_track_number">تضمين رقم المسار</string>
+    <string name="title_use_cloudflare_dns">استخدام DNS الخاص بـ Cloudflare</string>
+
+    <!-- أذونات -->
+    <string name="permission_storage_title">الوصول إلى التخزين</string>
+    <string name="permission_manage_storage_title">إدارة التخزين</string>
+    <string name="permission_post_notifications_title">الإشعارات</string>
+    <string name="permission_notification_listener_title">كشف الوسائط</string>
+    <string name="permission_storage_description">يحتاج EchoirX إلى إذن للوصول إلى التخزين لحفظ الملفات التي تم تنزيلها.</string>
+    <string name="permission_manage_storage_description">على أندرويد 11+، يتطلب EchoirX إذنًا خاصًا لإدارة الملفات، مما يساعد على تنظيم التنزيلات.</string>
+    <string name="permission_post_notifications_description">احصل على إشعارات حول تقدم التنزيل. يمكنك تعديلها لاحقًا من الإعدادات.</string>
+    <string name="permission_notification_listener_description">اسمح لـ EchoirX بكشف الوسائط المشغلة حاليًا واقتراح التنزيل. هذا اختياري بالكامل.</string>
+
+    <!-- رسائل وعناصر واجهة المستخدم الأخرى تُستكمل لاحقًا -->
+</resources>
