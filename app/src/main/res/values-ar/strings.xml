@@ -26,7 +26,7 @@
     <string name="cd_delete">حذف</string>
     <string name="cd_share">مشاركة</string>
     <string name="cd_history">السجل</string>
-    <string name="cd_play_preview">تشغيل معاينة</string>
+    <string name="cd_play_preview">تشغيل المعاينة</string>
     <string name="cd_stop_preview">إيقاف المعاينة</string>
     <string name="cd_retry">إعادة المحاولة</string>
     <string name="cd_delete_search">حذف البحث</string>
@@ -64,23 +64,132 @@
     <string name="title_clear_data">مسح البيانات</string>
     <string name="title_reset_settings">إعادة ضبط الإعدادات</string>
     <string name="title_filter_options">خيارات التصفية</string>
-    <string name="title_recent_searches">البحث الأخير</string>
-    <string name="title_suggestions">الاقتراحات</string>
+    <string name="title_recent_searches">عمليات البحث الأخيرة</string>
+    <string name="title_suggestions">اقتراحات</string>
     <string name="title_clear_search_history">مسح سجل البحث</string>
     <string name="title_save_cover_art">حفظ غلاف الألبوم</string>
-    <string name="title_save_lyrics">حفظ الكلمات</string>
+    <string name="title_save_lyrics">حفظ كلمات الأغنية</string>
     <string name="title_include_track_number">تضمين رقم المسار</string>
     <string name="title_use_cloudflare_dns">استخدام DNS الخاص بـ Cloudflare</string>
 
-    <!-- أذونات -->
+    <!-- الأذونات -->
     <string name="permission_storage_title">الوصول إلى التخزين</string>
     <string name="permission_manage_storage_title">إدارة التخزين</string>
     <string name="permission_post_notifications_title">الإشعارات</string>
     <string name="permission_notification_listener_title">كشف الوسائط</string>
-    <string name="permission_storage_description">يحتاج EchoirX إلى إذن للوصول إلى التخزين لحفظ الملفات التي تم تنزيلها.</string>
-    <string name="permission_manage_storage_description">على أندرويد 11+، يتطلب EchoirX إذنًا خاصًا لإدارة الملفات، مما يساعد على تنظيم التنزيلات.</string>
-    <string name="permission_post_notifications_description">احصل على إشعارات حول تقدم التنزيل. يمكنك تعديلها لاحقًا من الإعدادات.</string>
-    <string name="permission_notification_listener_description">اسمح لـ EchoirX بكشف الوسائط المشغلة حاليًا واقتراح التنزيل. هذا اختياري بالكامل.</string>
 
-    <!-- رسائل وعناصر واجهة المستخدم الأخرى تُستكمل لاحقًا -->
+    <!-- أوصاف الأذونات -->
+    <string name="permission_storage_description">يحتاج EchoirX إلى إذن الوصول للتخزين لحفظ ملفات الموسيقى التي تم تنزيلها.</string>
+    <string name="permission_manage_storage_description">في أندرويد 11+، يحتاج EchoirX إلى إذن خاص لإدارة الملفات، مما يسمح بتنظيم أفضل للتنزيلات.</string>
+    <string name="permission_post_notifications_description">تلقي إشعارات بشأن تقدم التنزيلات. يمكنك تعطيل أنواع معينة لاحقًا من الإعدادات.</string>
+    <string name="permission_notification_listener_description">اسمح لـ EchoirX باكتشاف الموسيقى التي يتم تشغيلها واقتراح التنزيلات. هذه الميزة اختيارية.</string>
+
+    <!-- العناوين الفرعية -->
+    <string name="subtitle_save_cover_art">حفظ صورة الغلاف كملف منفصل</string>
+    <string name="subtitle_save_lyrics">حفظ كلمات الأغنية كملف منفصل</string>
+    <string name="subtitle_use_cloudflare_dns">فعِّل هذا الخيار إذا كنت تواجه مشاكل في الاتصال أو الوصول إلى الخوادم</string>
+
+    <!-- الرسائل -->
+    <string name="msg_downloads_empty">لا توجد تنزيلات بعد</string>
+    <string name="msg_downloads_empty_desc">ستظهر المسارات التي تم تنزيلها هنا</string>
+    <string name="msg_search_empty">ابحث عن موسيقى</string>
+    <string name="msg_search_empty_desc">أدخل اسم فنان أو ألبوم أو مسار لبدء البحث</string>
+    <string name="msg_search_no_results">لم يتم العثور على نتائج</string>
+    <string name="msg_search_no_results_desc">حاول البحث بكلمات مختلفة</string>
+    <string name="msg_search_no_results_filters">لا توجد نتائج مطابقة</string>
+    <string name="msg_search_no_results_filters_desc">حاول تعديل إعدادات الفلترة</string>
+    <string name="msg_unknown_error">حدث خطأ غير معروف</string>
+    <string name="msg_download_started">تم بدء التنزيل بجودة %1$s</string>
+    <string name="msg_clear_data_subtitle">مسح سجل التنزيل وذاكرة التخزين المؤقت</string>
+    <string name="msg_reset_settings_subtitle">إعادة جميع الإعدادات إلى الوضع الافتراضي</string>
+    <string name="msg_about_version">الإصدار %s</string>
+    <string name="msg_file_not_found">الملف غير موجود</string>
+    <string name="msg_no_player_available">لا يوجد مشغل موسيقى متاح</string>
+    <string name="msg_file_open_failed">تعذر فتح الملف</string>
+    <string name="msg_server_subtitle">تكوين رابط الخادم المخصص</string>
+    <string name="msg_file_naming_desc">اختر كيف سيتم تسمية ملفات التنزيل</string>
+    <string name="msg_server_recommendation">أنت تستخدم رابط خادم تجريبي. يرجى تعيين رابط خادم حقيقي من علامة تبويب الإعدادات للبحث والتنزيل.</string>
+    <string name="msg_spaces_will_be_removed">سيتم إزالة المسافات تلقائيًا</string>
+    <string name="msg_file_deleted">تم حذف الملف</string>
+    <string name="msg_removed_from_history">تمت إزالته من سجل التنزيل</string>
+    <string name="msg_preview_error">تعذر تشغيل المعاينة</string>
+    <string name="msg_download_restarted">تمت إعادة بدء التنزيل</string>
+    <string name="msg_download_retry_failed">فشل في إعادة بدء التنزيل</string>
+    <string name="msg_no_search_history">لا يوجد سجل بحث</string>
+    <string name="msg_no_search_history_desc">ستظهر عمليات البحث الأخيرة هنا</string>
+    <string name="msg_clear_search_history_subtitle">إزالة جميع عمليات البحث المحفوظة</string>
+    <string name="msg_no_media_playing">لا يتم تشغيل أي وسائط حاليًا</string>
+    <string name="msg_searching_current_media">جارٍ البحث عن: %s</string>
+
+    <!-- الإشعارات -->
+    <string name="notification_channel_name">التنزيلات</string>
+    <string name="notification_channel_desc">إشعارات تنزيل المسارات</string>
+    <string name="notification_downloading">جارٍ تنزيل %1$s</string>
+    <string name="notification_processing">جارٍ معالجة %1$s</string>
+    <string name="notification_complete">اكتمل التنزيل</string>
+    <string name="notification_failed">فشل التنزيل</string>
+    <string name="notification_progress">تنزيلات قيد التنفيذ</string>
+
+    <!-- الحوارات -->
+    <string name="dialog_reset_settings_title">إعادة ضبط الإعدادات؟</string>
+    <string name="dialog_reset_settings_message">هل أنت متأكد أنك تريد إعادة جميع الإعدادات إلى الوضع الافتراضي؟ لا يمكن التراجع عن هذا الإجراء.</string>
+    <string name="dialog_clear_data_title">مسح البيانات؟</string>
+    <string name="dialog_clear_data_message">هل أنت متأكد أنك تريد مسح سجل التنزيل والملفات المؤقتة؟ لا يمكن التراجع.</string>
+    <string name="dialog_clear_history_title">مسح سجل البحث؟</string>
+    <string name="dialog_clear_history_message">هل أنت متأكد أنك تريد مسح سجل البحث؟ لا يمكن التراجع.</string>
+
+    <!-- الإجراءات -->
+    <string name="action_clear_search">مسح</string>
+    <string name="action_retry">إعادة المحاولة</string>
+    <string name="action_done">تم</string>
+    <string name="action_cancel">إلغاء</string>
+    <string name="action_reset">إعادة ضبط</string>
+    <string name="action_clear">مسح</string>
+    <string name="action_clear_all">مسح الكل</string>
+    <string name="action_save">حفظ</string>
+    <string name="action_reset_to_default">إعادة للوضع الافتراضي</string>
+    <string name="action_open_settings">الانتقال للإعدادات</string>
+    <string name="action_open_in_player">فتح في المشغل</string>
+    <string name="action_delete_file">حذف الملف</string>
+    <string name="action_delete_from_history">إزالة من السجل</string>
+    <string name="action_share">مشاركة</string>
+    <string name="action_play_preview">تشغيل المعاينة</string>
+    <string name="action_stop_preview">إيقاف المعاينة</string>
+    <string name="action_retry_download">إعادة تنزيل</string>
+    <string name="action_download_with_quality">تنزيل (%1$s)</string>
+    <string name="action_grant_permission">منح الإذن</string>
+    <string name="action_skip">تخطي</string>
+
+    <!-- تسميات الجودة -->
+    <string name="quality_label_hires">جودة عالية</string>
+    <string name="quality_label_lossless">بدون فقدان للجودة</string>
+    <string name="quality_label_cdq">جودة الأقراص</string>
+    <string name="quality_label_dolby_ac3">Dolby EAC3</string>
+    <string name="quality_label_dolby_ac4">Dolby AC4</string>
+    <string name="quality_label_aac_320">AAC 320</string>
+    <string name="quality_label_aac_96">AAC 96</string>
+
+    <!-- أوصاف الجودة -->
+    <string name="quality_desc_hires">تنسيق FLAC 24-بت/192 كيلوهرتز بأعلى جودة صوت</string>
+    <string name="quality_desc_lossless">تنسيق FLAC 16-بت/44.1 كيلوهرتز بجودة الأقراص</string>
+    <string name="quality_desc_dolby_ac3">تنسيق E-AC-3 مع صوت محيطي Dolby Atmos</string>
+    <string name="quality_desc_dolby_ac4">تنسيق AC-4 مع Dolby Atmos (موصى به)</string>
+    <string name="quality_desc_aac_320">ضغط بجودة عالية بسرعة 320 كيلوبت/ثانية</string>
+    <string name="quality_desc_aac_96">ضغط بجودة قياسية بسرعة 96 كيلوبت/ثانية</string>
+
+    <!-- تنسيقات تسمية الملفات -->
+    <string name="file_format_artist_title_display">الفنان - العنوان</string>
+    <string name="file_format_title_artist_display">العنوان - الفنان</string>
+    <string name="file_format_title_only_display">العنوان فقط</string>
+
+    <!-- التلميحات -->
+    <string name="hint_search">ابحث عن %1$s…</string>
+    <string name="hint_server_url">https://example.com/api/echoir</string>
+
+    <!-- التلميحات السريعة -->
+    <string name="tooltip_filter">تصفية نتائج البحث</string>
+
+    <!-- الأخطاء -->
+    <string name="error_empty_server_url">لا يمكن أن يكون عنوان الخادم فارغًا</string>
+    <string name="error_example_server">تعذر الاتصال بالخادم التجريبي. يرجى إعداد خادم حقيقي من الإعدادات.</string>
 </resources>
