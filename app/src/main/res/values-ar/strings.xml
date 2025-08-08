@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- اسم التطبيق -->
-    <string name="app_name">EchoirX</string>
-
     <!-- التنقل -->
     <string name="nav_home">الرئيسية</string>
     <string name="nav_settings">الإعدادات</string>
@@ -34,9 +31,6 @@
 
     <!-- التسميات -->
     <string name="label_explicit">صريح</string>
-    <string name="label_dolby_atmos">Dolby Atmos</string>
-    <string name="label_dolby">Dolby</string>
-    <string name="label_aac">AAC</string>
     <string name="label_tracks">المسارات</string>
     <string name="label_albums">الألبومات</string>
     <string name="label_clean">نظيف</string>
@@ -65,7 +59,6 @@
     <string name="title_reset_settings">إعادة ضبط الإعدادات</string>
     <string name="title_filter_options">خيارات التصفية</string>
     <string name="title_recent_searches">عمليات البحث الأخيرة</string>
-    <string name="title_suggestions">اقتراحات</string>
     <string name="title_clear_search_history">مسح سجل البحث</string>
     <string name="title_save_cover_art">حفظ غلاف الألبوم</string>
     <string name="title_save_lyrics">حفظ كلمات الأغنية</string>
@@ -87,7 +80,7 @@
     <!-- العناوين الفرعية -->
     <string name="subtitle_save_cover_art">حفظ صورة الغلاف كملف منفصل</string>
     <string name="subtitle_save_lyrics">حفظ كلمات الأغنية كملف منفصل</string>
-    <string name="subtitle_use_cloudflare_dns">فعِّل هذا الخيار إذا كنت تواجه مشاكل في الاتصال أو الوصول إلى الخوادم</string>
+    <string name="subtitle_use_cloudflare_dns">فعِّل هذا الخيار إذا كنت تواجه مشاكل في الاتصال أو الوصول إلى الخوادم</string>
 
     <!-- الرسائل -->
     <string name="msg_downloads_empty">لا توجد تنزيلات بعد</string>
@@ -184,7 +177,6 @@
 
     <!-- التلميحات -->
     <string name="hint_search">ابحث عن %1$s…</string>
-    <string name="hint_server_url">https://example.com/api/echoir</string>
 
     <!-- التلميحات السريعة -->
     <string name="tooltip_filter">تصفية نتائج البحث</string>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- App name -->
-    <string name="app_name">EchoirX</string>
+    <string name="app_name" translatable="false">EchoirX</string>
 
     <!-- Navigation -->
     <string name="nav_home">Home</string>
@@ -34,9 +34,9 @@
 
     <!-- Labels -->
     <string name="label_explicit">Explicit</string>
-    <string name="label_dolby_atmos">Dolby Atmos</string>
-    <string name="label_dolby">Dolby</string>
-    <string name="label_aac">AAC</string>
+    <string name="label_dolby_atmos" translatable="false">Dolby Atmos</string>
+    <string name="label_dolby" translatable="false">Dolby</string>
+    <string name="label_aac" translatable="false">AAC</string>
     <string name="label_tracks">Tracks</string>
     <string name="label_albums">Albums</string>
     <string name="label_clean">Clean</string>
@@ -183,7 +183,7 @@
 
     <!-- Hints -->
     <string name="hint_search">Search for %1$s…</string>
-    <string name="hint_server_url">https://example.com/api/echoir</string>
+    <string name="hint_server_url" translatable="false">https://example.com/api/echoir</string>
 
     <!-- Tooltips -->
     <string name="tooltip_filter">Filter search results</string>
