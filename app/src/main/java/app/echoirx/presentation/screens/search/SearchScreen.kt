@@ -20,9 +20,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.CloudOff
 import androidx.compose.material.icons.outlined.Error
 import androidx.compose.material.icons.outlined.FilterAlt
-import androidx.compose.material.icons.outlined.MusicNote
-import androidx.compose.material.icons.outlined.MusicOff
-import androidx.compose.material.icons.outlined.NotificationsOff
 import androidx.compose.material3.ContainedLoadingIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
@@ -239,10 +236,10 @@ fun SearchScreen(
                     }
                 ) {
                     Icon(
-                        imageVector = when {
-                            !hasMediaPermission -> Icons.Outlined.NotificationsOff
-                            currentMediaInfo?.isPlaying == true -> Icons.Outlined.MusicNote
-                            else -> Icons.Outlined.MusicOff
+                        painter = when {
+                            !hasMediaPermission -> painterResource(R.drawable.ic_music_cast_disabled)
+                            currentMediaInfo?.isPlaying == true -> painterResource(R.drawable.ic_music_cast)
+                            else -> painterResource(R.drawable.ic_music_cast_disabled)
                         },
                         contentDescription = null
                     )
