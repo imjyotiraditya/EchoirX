@@ -23,20 +23,18 @@ import androidx.compose.material.icons.outlined.FilterAlt
 import androidx.compose.material.icons.outlined.MusicNote
 import androidx.compose.material.icons.outlined.MusicOff
 import androidx.compose.material.icons.outlined.NotificationsOff
-import androidx.compose.material3.ButtonGroupDefaults
 import androidx.compose.material3.ContainedLoadingIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.FilledTonalIconButton
+import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedToggleButton
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
-import androidx.compose.material3.ToggleButtonDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -54,9 +52,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.semantics.role
-import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
@@ -191,34 +186,25 @@ fun SearchScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Row(
-                    horizontalArrangement = Arrangement.spacedBy(ButtonGroupDefaults.ConnectedSpaceBetween)
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    SearchType.entries.forEachIndexed { index, type ->
-                        val isSelected = state.searchType == type
-
-                        OutlinedToggleButton(
-                            checked = isSelected,
-                            onCheckedChange = {
-                                if (!isSelected) {
+                    SearchType.entries.forEach { type ->
+                        FilterChip(
+                            selected = state.searchType == type,
+                            onClick = {
+                                if (state.searchType != type) {
                                     viewModel.onSearchTypeChange(type)
                                     focusManager.clearFocus()
                                 }
                             },
-                            modifier = Modifier.semantics { role = Role.RadioButton },
-                            colors = ToggleButtonDefaults.outlinedToggleButtonColors(
-                                checkedContainerColor = MaterialTheme.colorScheme.primary
-                            ),
-                            shapes = if (index == 0) {
-                                ButtonGroupDefaults.connectedLeadingButtonShapes()
-                            } else {
-                                ButtonGroupDefaults.connectedTrailingButtonShapes()
-                            }
-                        ) {
-                            Text(
-                                text = stringResource(type.title),
-                                style = MaterialTheme.typography.labelLarge
-                            )
-                        }
+                            label = {
+                                Text(
+                                    text = stringResource(type.title),
+                                    style = MaterialTheme.typography.labelLarge
+                                )
+                            },
+                            shape = MaterialTheme.shapes.extraLarge
+                        )
                     }
                 }
 
