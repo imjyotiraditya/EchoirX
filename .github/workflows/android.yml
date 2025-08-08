@@ -54,6 +54,12 @@ jobs:
         with:
           cache-disabled: true
 
+      - name: Set up NDK
+        uses: nttld/setup-ndk@v1
+        with:
+          ndk-version: r28c
+          link-to-sdk: true
+
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 

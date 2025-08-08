@@ -41,6 +41,8 @@ android {
         )
     }
 
+    ndkVersion = "28.2.13676358"
+
     signingConfigs {
         keystoreProperties.getProperty("STORE_FILE")?.let { storeFile ->
             create("release") {
