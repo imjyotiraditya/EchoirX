@@ -23,7 +23,10 @@ fun EchoirBottomNav(
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
 
-    NavigationBar {
+    NavigationBar(
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+        contentColor = MaterialTheme.colorScheme.onSurface
+    ) {
         navigationItems.forEach { item ->
             val isSelected = when (item.route) {
                 Route.Search.Main.path -> Route.Search.isInSearchSection(navBackStackEntry?.destination?.route)

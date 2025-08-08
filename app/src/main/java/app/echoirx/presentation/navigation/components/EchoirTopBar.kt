@@ -1,5 +1,6 @@
 package app.echoirx.presentation.navigation.components
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -13,7 +14,9 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import app.echoirx.R
 import app.echoirx.presentation.navigation.Route
 
@@ -41,7 +44,12 @@ fun EchoirTopBar(
             if (currentRoute is Route.Search.Details) {
                 FilledTonalIconButton(
                     onClick = onNavigateBack,
-                    shapes = IconButtonDefaults.shapes()
+                    shapes = IconButtonDefaults.shapes(),
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                    colors = IconButtonDefaults.filledTonalIconButtonColors().copy(
+                        containerColor = MaterialTheme.colorScheme.surfaceContainerHighest,
+                        contentColor = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
                 ) {
                     Icon(
                         imageVector = Icons.AutoMirrored.Default.ArrowBack,
@@ -51,8 +59,8 @@ fun EchoirTopBar(
             }
         },
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = MaterialTheme.colorScheme.surface,
-            scrolledContainerColor = MaterialTheme.colorScheme.surface,
+            containerColor = MaterialTheme.colorScheme.surfaceContainer,
+            scrolledContainerColor = MaterialTheme.colorScheme.surfaceContainer,
             navigationIconContentColor = MaterialTheme.colorScheme.onSurface,
             titleContentColor = MaterialTheme.colorScheme.onSurface
         ),

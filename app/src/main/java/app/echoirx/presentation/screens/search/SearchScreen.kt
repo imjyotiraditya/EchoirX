@@ -137,8 +137,8 @@ fun SearchScreen(
                 colors = TextFieldDefaults.colors(
                     focusedIndicatorColor = Color.Transparent,
                     unfocusedIndicatorColor = Color.Transparent,
-                    focusedContainerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
-                    unfocusedContainerColor = MaterialTheme.colorScheme.surfaceContainerHigh
+                    focusedContainerColor = MaterialTheme.colorScheme.surfaceBright,
+                    unfocusedContainerColor = MaterialTheme.colorScheme.surfaceBright
                 ),
                 shape = MaterialTheme.shapes.extraLarge,
                 placeholder = {

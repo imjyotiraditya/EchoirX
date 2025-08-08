@@ -50,7 +50,7 @@ fun PreferenceItem(
                     Modifier
                 }
             ),
-        color = MaterialTheme.colorScheme.surfaceContainerHigh,
+        color = MaterialTheme.colorScheme.surfaceBright,
         shape = shape
     ) {
         Row(

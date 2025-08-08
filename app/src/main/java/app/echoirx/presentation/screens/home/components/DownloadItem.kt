@@ -85,7 +85,7 @@ fun DownloadItem(
                     Modifier
                 }
             ),
-        color = MaterialTheme.colorScheme.surfaceContainerHigh,
+        color = MaterialTheme.colorScheme.surfaceBright,
         shape = shape
     ) {
         Row(

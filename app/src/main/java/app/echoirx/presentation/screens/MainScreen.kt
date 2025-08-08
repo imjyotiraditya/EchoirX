@@ -68,7 +68,7 @@ fun MainScreen(navController: NavHostController) {
                 }
             )
         },
-        containerColor = MaterialTheme.colorScheme.surface
+        containerColor = MaterialTheme.colorScheme.surfaceContainer
     ) { innerPadding ->
         NavHost(
             navController = navController,

@@ -68,7 +68,7 @@ fun SearchHistoryItem(
             .fillMaxWidth()
             .clip(shape)
             .clickable(onClick = onClick),
-        color = MaterialTheme.colorScheme.surfaceContainerHigh,
+        color = MaterialTheme.colorScheme.surfaceBright,
         shape = shape
     ) {
         Row(
