@@ -1,1 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App name -->
+    <string name="app_name" translatable="false">EchoirX</string>
 
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_details">Details</string>
+
+    <!-- Content Descriptions -->
+    <string name="cd_back_button">Navigate back</string>
+    <string name="cd_error">Error</string>
+    <string name="cd_search">Search</string>
+    <string name="cd_clear_search">Clear search</string>
+    <string name="cd_filter_button">Filter results</string>
+    <string name="cd_download_button">Download options</string>
+    <string name="cd_download_option">Download option: %s</string>
+    <string name="cd_explicit_content">Explicit content</string>
+    <string name="cd_dolby_atmos">Dolby Atmos supported</string>
+    <string name="cd_track_image">Track artwork</string>
+    <string name="cd_filter_quality">Quality filter options</string>
+    <string name="cd_filter_content">Content filter options</string>
+    <string name="cd_play">Play</string>
+    <string name="cd_delete">Delete</string>
+    <string name="cd_share">Share</string>
+    <string name="cd_history">History</string>
+    <string name="cd_play_preview">Play preview</string>
+    <string name="cd_stop_preview">Stop preview</string>
+    <string name="cd_retry">Retry</string>
+    <string name="cd_delete_search">Delete search</string>
+    <string name="cd_clear">Clear</string>
+
+    <!-- Labels -->
+    <string name="label_both">Both</string>
+    <string name="label_explicit">Explicit</string>
+    <string name="label_dolby_atmos" translatable="false">Dolby Atmos</string>
+    <string name="label_dolby" translatable="false">Dolby</string>
+    <string name="label_aac" translatable="false">AAC</string>
+    <string name="label_tracks">Tracks</string>
+    <string name="label_albums">Albums</string>
+    <string name="label_clean">Clean</string>
+    <string name="label_unknown">Unknown</string>
+    <string name="label_queued">Queued</string>
+    <string name="label_server_url">Server URL</string>
+    <string name="label_processing">Processing</string>
+    <string name="label_completed">Completed</string>
+    <string name="label_failed">Failed</string>
+    <string name="label_file_missing">File missing</string>
+    <string name="label_deleted">Deleted</string>
+
+    <!-- Titles -->
+    <string name="title_active_downloads">Active downloads</string>
+    <string name="title_download_history">Download history</string>
+    <string name="title_file_naming_format">File naming format</string>
+    <string name="title_storage">Storage</string>
+    <string name="title_data">Data</string>
+    <string name="title_about">About</string>
+    <string name="title_quality">Quality</string>
+    <string name="title_content">Content</string>
+    <string name="title_download_location">Download location</string>
+    <string name="title_server">Server</string>
+    <string name="title_server_recommendation">Server Configuration Required</string>
+    <string name="title_clear_data">Clear data</string>
+    <string name="title_reset_settings">Reset settings</string>
+    <string name="title_filter_options">Filter Options</string>
+    <string name="title_recent_searches">Recent Searches</string>
+    <string name="title_clear_search_history">Clear Search History</string>
+    <string name="title_save_cover_art">Save Cover Art</string>
+    <string name="title_save_lyrics">Save Lyrics</string>
+    <string name="title_include_track_number">Include Track Number</string>
+    <string name="title_use_cloudflare_dns">Use Cloudflare DNS</string>
+    <string name="title_github">GitHub</string>
+    <string name="title_telegram_community">Telegram Community</string>
+
+    <!-- Permission Titles -->
+    <string name="permission_storage_title">Storage Access</string>
+    <string name="permission_manage_storage_title">Manage Storage</string>
+    <string name="permission_post_notifications_title">Notifications</string>
+    <string name="permission_notification_listener_title">Media Detection</string>
+
+    <!-- Permission Descriptions -->
+    <string name="permission_storage_description">EchoirX needs storage access to save your downloaded music files to your device.</string>
+    <string name="permission_manage_storage_description">On Android 11+, EchoirX needs special permission to manage files. This allows the app to organize your downloads efficiently.</string>
+    <string name="permission_post_notifications_description">Get notified about download progress and completion. You can disable specific notification types in settings later.</string>
+    <string name="permission_notification_listener_description">Allow EchoirX to detect currently playing music and suggest downloads. This is completely optional but enhances your experience.</string>
+
+    <!-- Subtitles -->
+    <string name="subtitle_save_cover_art">Save album artwork as a separate file</string>
+    <string name="subtitle_save_lyrics">Save track lyrics as a separate file</string>
+    <string name="subtitle_use_cloudflare_dns">Enable if you have connection issues or can\'t access servers</string>
+    <string name="subtitle_github">View source code and report issues</string>
+    <string name="subtitle_telegram_community">Join our community for support and updates</string>
+
+    <!-- Messages -->
+    <string name="msg_downloads_empty">No downloads yet</string>
+    <string name="msg_downloads_empty_desc">Your downloaded tracks will appear here</string>
+    <string name="msg_search_empty">Search for music</string>
+    <string name="msg_search_empty_desc">Enter an artist, album, or track name to start searching</string>
+    <string name="msg_search_no_results">No results found</string>
+    <string name="msg_search_no_results_desc">Try searching with different keywords</string>
+    <string name="msg_search_no_results_filters">No matching results</string>
+    <string name="msg_search_no_results_filters_desc">Try adjusting your filter settings</string>
+    <string name="msg_unknown_error">An unknown error occurred</string>
+    <string name="msg_download_started">Started downloading in %1$s quality</string>
+    <string name="msg_clear_data_subtitle">Clear download history and cache</string>
+    <string name="msg_reset_settings_subtitle">Reset all settings to defaults</string>
+    <string name="msg_about_version">Version %s</string>
+    <string name="msg_file_not_found">File not found</string>
+    <string name="msg_no_player_available">No available music player</string>
+    <string name="msg_file_open_failed">Could not open file</string>
+    <string name="msg_server_subtitle">Configure custom server URL</string>
+    <string name="msg_file_naming_desc">Choose how your downloaded files will be named</string>
+    <string name="msg_server_recommendation">You\'re using the example server URL. Please configure a real server URL in the Settings tab to search for and download music.</string>
+    <string name="msg_spaces_will_be_removed">Spaces will be automatically removed</string>
+    <string name="msg_file_deleted">File deleted</string>
+    <string name="msg_removed_from_history">Removed from download history</string>
+    <string name="msg_preview_error">Couldn\'t play the preview</string>
+    <string name="msg_download_restarted">Download restarted</string>
+    <string name="msg_download_retry_failed">Failed to restart download</string>
+    <string name="msg_no_search_history">No search history</string>
+    <string name="msg_no_search_history_desc">Your recent searches will appear here</string>
+    <string name="msg_clear_search_history_subtitle">Remove all your saved searches</string>
+    <string name="msg_no_media_playing">No media currently playing</string>
+    <string name="msg_searching_current_media">Searching for: %s</string>
+    <string name="msg_download_cancelled">Download cancelled</string>
+
+    <!-- Notifications -->
+    <string name="notification_channel_name">Downloads</string>
+    <string name="notification_channel_desc">Track download notifications</string>
+    <string name="notification_downloading">Downloading %1$s</string>
+    <string name="notification_processing">Processing %1$s</string>
+    <string name="notification_complete">Download Complete</string>
+    <string name="notification_failed">Download Failed</string>
+    <string name="notification_progress">Downloads in progress</string>
+    <string name="notification_downloads_count">%d downloads in progress</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_reset_settings_title">Reset Settings?</string>
+    <string name="dialog_reset_settings_message">Are you sure you want to reset all settings to default? This cannot be undone.</string>
+    <string name="dialog_clear_data_title">Clear Data?</string>
+    <string name="dialog_clear_data_message">Are you sure you want to clear download history and cache? This cannot be undone.</string>
+    <string name="dialog_clear_history_title">Clear Search History?</string>
+    <string name="dialog_clear_history_message">Are you sure you want to clear your search history? This cannot be undone.</string>
+
+    <!-- Actions -->
+    <string name="action_clear_search">Clear</string>
+    <string name="action_retry">Retry</string>
+    <string name="action_done">Done</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_reset">Reset</string>
+    <string name="action_clear">Clear</string>
+    <string name="action_clear_all">Clear All</string>
+    <string name="action_save">Save</string>
+    <string name="action_reset_to_default">Reset to Default</string>
+    <string name="action_open_settings">Go to Settings</string>
+    <string name="action_open_in_player">Open in player</string>
+    <string name="action_delete_file">Delete file</string>
+    <string name="action_delete_from_history">Remove from history</string>
+    <string name="action_share">Share</string>
+    <string name="action_play_preview">Play Preview</string>
+    <string name="action_stop_preview">Stop Preview</string>
+    <string name="action_retry_download">Retry Download</string>
+    <string name="action_download_with_quality">Download (%1$s)</string>
+    <string name="action_grant_permission">Grant Permission</string>
+    <string name="action_skip">Skip</string>
+
+    <!-- Quality Labels -->
+    <string name="quality_label_hires">Hi-Res</string>
+    <string name="quality_label_lossless">Lossless</string>
+    <string name="quality_label_cdq">CDQ</string>
+    <string name="quality_label_dolby_ac3">Dolby EAC3</string>
+    <string name="quality_label_dolby_ac4">Dolby AC4</string>
+    <string name="quality_label_aac_320">AAC 320</string>
+    <string name="quality_label_aac_96">AAC 96</string>
+
+    <!-- Quality Descriptions -->
+    <string name="quality_desc_hires">24-bit/192kHz FLAC format with maximum audio quality</string>
+    <string name="quality_desc_lossless">16-bit/44.1kHz FLAC format with CD quality</string>
+    <string name="quality_desc_dolby_ac3">E-AC-3 format with Dolby Atmos spatial audio</string>
+    <string name="quality_desc_dolby_ac4">AC-4 format with Dolby Atmos spatial audio (recommended)</string>
+    <string name="quality_desc_aac_320">High quality lossy compression at 320 KB/s</string>
+    <string name="quality_desc_aac_96">Standard quality lossy compression at 96 KB/s</string>
+
+    <!-- Quality Warnings -->
+    <string name="quality_warning_aac_320">While downloading 320, service might occasionally deliver 96 kbps based on various factors</string>
+
+    <!-- File Naming Format -->
+    <string name="file_format_artist_title_display">Artist - Title</string>
+    <string name="file_format_title_artist_display">Title - Artist</string>
+    <string name="file_format_title_only_display">Title</string>
+
+    <!-- Hints -->
+    <string name="hint_search">Search for %1$s…</string>
+    <string name="hint_server_url" translatable="false">https://example.com/api/echoir</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_filter">Filter search results</string>
+
+    <!-- Errors -->
+    <string name="error_empty_server_url">Server URL cannot be empty</string>
+    <string name="error_example_server">Cannot connect to example server. Please configure a real server URL in Settings.</string>
+
+    <!-- URLs -->
+    <string name="url_github" translatable="false">https://github.com/imjyotiraditya/EchoirX</string>
+    <string name="url_telegram" translatable="false">https://t.me/ThisPandaCanTalk</string>
+</resources>
