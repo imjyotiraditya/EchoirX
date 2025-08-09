@@ -20,7 +20,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navArgument
-import app.echoirx.domain.model.SearchResult
+import app.echoirx.domain.model.SearchItem
 import app.echoirx.presentation.navigation.Route
 import app.echoirx.presentation.navigation.components.EchoirBottomNav
 import app.echoirx.presentation.navigation.components.EchoirTopBar
@@ -92,7 +92,7 @@ fun MainScreen(navController: NavHostController) {
                 val id = backStackEntry.arguments?.getLong(Route.Search.Details.ID_ARG)
                 val result = navController.previousBackStackEntry
                     ?.savedStateHandle
-                    ?.get<SearchResult>("result")
+                    ?.get<SearchItem>("result")
 
                 if (type != null && id != null && result != null) {
                     DetailsScreen(result, snackbarHostState = snackbarHostState)

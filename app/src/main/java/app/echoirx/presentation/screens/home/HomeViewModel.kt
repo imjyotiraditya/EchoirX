@@ -130,7 +130,7 @@ class HomeViewModel @Inject constructor(
 
                 processDownloadUseCase(
                     DownloadRequest.Track(
-                        track = download.searchResult,
+                        track = download.searchItem,
                         config = qualityConfig
                     )
                 )

@@ -11,7 +11,7 @@ import app.echoirx.data.permission.PermissionManager
 import app.echoirx.domain.model.DownloadRequest
 import app.echoirx.domain.model.QualityConfig
 import app.echoirx.domain.model.SearchHistoryItem
-import app.echoirx.domain.model.SearchResult
+import app.echoirx.domain.model.SearchItem
 import app.echoirx.domain.repository.SearchHistoryRepository
 import app.echoirx.domain.usecase.ProcessDownloadUseCase
 import app.echoirx.domain.usecase.SearchUseCase
@@ -251,7 +251,7 @@ class SearchViewModel @Inject constructor(
         }
     }
 
-    fun downloadTrack(track: SearchResult, config: QualityConfig) {
+    fun downloadTrack(track: SearchItem, config: QualityConfig) {
         viewModelScope.launch {
             processDownloadUseCase(
                 DownloadRequest.Track(

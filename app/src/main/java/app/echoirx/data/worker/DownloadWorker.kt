@@ -37,7 +37,7 @@ class DownloadWorker @AssistedInject constructor(
             inputData.getString(KEY_DOWNLOAD_ID) ?: return createDefaultForegroundInfo()
         val download = downloadRepository.getDownloadById(downloadId)
         val title =
-            download?.searchResult?.title ?: applicationContext.getString(R.string.label_unknown)
+            download?.searchItem?.title ?: applicationContext.getString(R.string.label_unknown)
         val isMerging = download?.status == DownloadStatus.MERGING
         val progress = download?.progress ?: 0
 
@@ -71,7 +71,7 @@ class DownloadWorker @AssistedInject constructor(
 
         return try {
             val download = downloadRepository.getDownloadById(downloadId)
-            val modes = download?.searchResult?.modes
+            val modes = download?.searchItem?.modes
 
             val result = downloadRepository.processDownload(
                 downloadId = downloadId,
@@ -86,12 +86,12 @@ class DownloadWorker @AssistedInject constructor(
                         val title = if (progress == 100) {
                             applicationContext.getString(
                                 R.string.notification_processing,
-                                it.searchResult.title
+                                it.searchItem.title
                             )
                         } else {
                             applicationContext.getString(
                                 R.string.notification_downloading,
-                                it.searchResult.title
+                                it.searchItem.title
                             )
                         }
 
@@ -118,7 +118,7 @@ class DownloadWorker @AssistedInject constructor(
                 download?.let {
                     notificationManager.showCompletionNotification(
                         downloadId = downloadId,
-                        title = it.searchResult.title
+                        title = it.searchItem.title
                     )
                 }
                 Result.success()
@@ -126,7 +126,7 @@ class DownloadWorker @AssistedInject constructor(
                 download?.let {
                     notificationManager.showErrorNotification(
                         downloadId = downloadId,
-                        title = it.searchResult.title
+                        title = it.searchItem.title
                     )
                 } ?: notificationManager.showErrorNotification(
                     downloadId = downloadId,
@@ -142,7 +142,7 @@ class DownloadWorker @AssistedInject constructor(
             download?.let {
                 notificationManager.showErrorNotification(
                     downloadId = downloadId,
-                    title = it.searchResult.title
+                    title = it.searchItem.title
                 )
             } ?: notificationManager.showErrorNotification(
                 downloadId = downloadId,

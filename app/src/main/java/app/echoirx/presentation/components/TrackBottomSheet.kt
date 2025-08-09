@@ -26,13 +26,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import app.echoirx.R
 import app.echoirx.domain.model.QualityConfig
-import app.echoirx.domain.model.SearchResult
+import app.echoirx.domain.model.SearchItem
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun TrackBottomSheet(
     modifier: Modifier = Modifier,
-    track: SearchResult,
+    track: SearchItem,
     onDownload: (QualityConfig) -> Unit,
     onPreviewClick: () -> Unit = {},
     isPreviewPlaying: Boolean = false,

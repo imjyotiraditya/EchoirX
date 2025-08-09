@@ -9,13 +9,13 @@ data class AlbumDownloadContext(
 
 sealed class DownloadRequest {
     data class Track(
-        val track: SearchResult,
+        val track: SearchItem,
         val config: QualityConfig
     ) : DownloadRequest()
 
     data class Album(
-        val album: SearchResult,
-        val tracks: List<SearchResult>,
+        val album: SearchItem,
+        val tracks: List<SearchItem>,
         val config: QualityConfig,
         val downloadContext: AlbumDownloadContext
     ) : DownloadRequest()

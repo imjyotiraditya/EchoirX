@@ -36,7 +36,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import app.echoirx.R
 import app.echoirx.data.utils.extensions.showSnackbar
-import app.echoirx.domain.model.SearchResult
+import app.echoirx.domain.model.SearchItem
 import app.echoirx.presentation.components.DownloadOptions
 import app.echoirx.presentation.components.TrackBottomSheet
 import app.echoirx.presentation.components.TrackCover
@@ -46,7 +46,7 @@ import app.echoirx.presentation.screens.details.components.AlbumTrackItem
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun DetailsScreen(
-    result: SearchResult,
+    result: SearchItem,
     viewModel: DetailsViewModel = hiltViewModel(),
     snackbarHostState: SnackbarHostState
 ) {
@@ -54,7 +54,7 @@ fun DetailsScreen(
     val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
 
-    var selectedTrack by remember { mutableStateOf<SearchResult?>(null) }
+    var selectedTrack by remember { mutableStateOf<SearchItem?>(null) }
     var showBottomSheet by remember { mutableStateOf(false) }
     val isPreviewPlaying by viewModel.isPreviewPlaying.collectAsState()
 

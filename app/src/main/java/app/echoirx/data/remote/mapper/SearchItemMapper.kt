@@ -1,11 +1,11 @@
 package app.echoirx.data.remote.mapper
 
-import app.echoirx.data.remote.dto.SearchResultDto
-import app.echoirx.domain.model.SearchResult
+import app.echoirx.data.remote.dto.SearchItemDto
+import app.echoirx.domain.model.SearchItem
 
-object SearchResultMapper {
-    fun SearchResultDto.toDomain(): SearchResult =
-        SearchResult(
+object SearchItemMapper {
+    fun SearchItemDto.toDomain(): SearchItem =
+        SearchItem(
             id = id,
             title = title,
             duration = duration,

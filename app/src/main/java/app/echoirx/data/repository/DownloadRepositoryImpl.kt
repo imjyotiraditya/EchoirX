@@ -150,11 +150,11 @@ class DownloadRepositoryImpl @Inject constructor(
                     val saveLyrics = settingsRepository.getSaveLyrics()
 
                     // Save cover art if enabled
-                    if (saveCoverArt && download.searchResult.cover != null) {
+                    if (saveCoverArt && download.searchItem.cover != null) {
                         try {
                             val coverFilePath = "${targetDir.absolutePath}/${finalFileName}.jpg"
                             if (metadataManager.extractAndSaveCoverArt(
-                                    download.searchResult.cover.replace(
+                                    download.searchItem.cover.replace(
                                         "80x80",
                                         "1280x1280"
                                     ),
@@ -217,10 +217,10 @@ class DownloadRepositoryImpl @Inject constructor(
                     val saveLyrics = settingsRepository.getSaveLyrics()
 
                     // Save cover art if enabled
-                    if (saveCoverArt && download.searchResult.cover != null) {
+                    if (saveCoverArt && download.searchItem.cover != null) {
                         try {
                             val coverImageData = metadataManager.downloadCoverArt(
-                                download.searchResult.cover.replace(
+                                download.searchItem.cover.replace(
                                     "80x80",
                                     "1280x1280"
                                 )
@@ -345,11 +345,11 @@ class DownloadRepositoryImpl @Inject constructor(
         val format = settingsRepository.getFileNamingFormat()
         val includeTrackNumber = settingsRepository.getIncludeTrackNumber()
 
-        val trackNumber = if (includeTrackNumber) download.searchResult.trackNumber else null
+        val trackNumber = if (includeTrackNumber) download.searchItem.trackNumber else null
 
         val fileName = format.format(
-            download.searchResult.artists.joinToString(", "),
-            download.searchResult.title,
+            download.searchItem.artists.joinToString(", "),
+            download.searchItem.title,
             trackNumber
         )
         return sanitizeFileName(fileName)

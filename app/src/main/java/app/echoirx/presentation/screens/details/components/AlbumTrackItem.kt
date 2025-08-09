@@ -20,14 +20,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import app.echoirx.R
-import app.echoirx.domain.model.SearchResult
+import app.echoirx.domain.model.SearchItem
 import app.echoirx.presentation.components.preferences.PreferencePosition
 import java.util.Locale
 
 @Composable
 fun AlbumTrackItem(
     modifier: Modifier = Modifier,
-    track: SearchResult,
+    track: SearchItem,
     trackNumber: Int,
     position: PreferencePosition = PreferencePosition.Single,
     onClick: () -> Unit

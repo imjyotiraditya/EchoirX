@@ -20,7 +20,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import app.echoirx.R
-import app.echoirx.domain.model.SearchResult
+import app.echoirx.domain.model.SearchItem
 import app.echoirx.presentation.components.TrackCover
 import app.echoirx.presentation.components.preferences.PreferencePosition
 import java.util.Locale
@@ -28,7 +28,7 @@ import java.util.Locale
 @Composable
 fun SearchResultItem(
     modifier: Modifier = Modifier,
-    result: SearchResult,
+    result: SearchItem,
     position: PreferencePosition = PreferencePosition.Single,
     onClick: () -> Unit
 ) {

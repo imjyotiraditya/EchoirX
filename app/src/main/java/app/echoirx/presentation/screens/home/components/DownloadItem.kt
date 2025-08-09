@@ -105,7 +105,7 @@ fun DownloadItem(
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 TrackCover(
-                    url = download.searchResult.cover,
+                    url = download.searchItem.cover,
                     size = 60.dp
                 )
 
@@ -120,14 +120,14 @@ fun DownloadItem(
                     )
 
                     Text(
-                        text = download.searchResult.title,
+                        text = download.searchItem.title,
                         style = MaterialTheme.typography.bodyLarge,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis
                     )
 
                     Text(
-                        text = download.searchResult.artists.joinToString(", "),
+                        text = download.searchItem.artists.joinToString(", "),
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         maxLines = 1,
@@ -192,12 +192,12 @@ fun DownloadItem(
                     }
 
                     Text(
-                        text = download.searchResult.duration,
+                        text = download.searchItem.duration,
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
 
-                    if (download.searchResult.explicit) {
+                    if (download.searchItem.explicit) {
                         Icon(
                             painter = painterResource(R.drawable.ic_explicit),
                             contentDescription = stringResource(R.string.cd_explicit_content),

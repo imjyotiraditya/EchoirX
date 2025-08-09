@@ -1,12 +1,10 @@
-package app.echoirx.domain.model
+package app.echoirx.data.remote.dto
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-@Parcelize
-data class SearchResult(
+data class SearchItemDto(
     val id: Long,
     val title: String,
     val duration: String,
@@ -15,5 +13,5 @@ data class SearchResult(
     val artists: List<String>,
     val modes: List<String>?,
     val formats: List<String>?,
-    val trackNumber: Int? = null
-) : Parcelable
+    @SerialName("track_number") val trackNumber: Int? = null
+)

@@ -3,6 +3,7 @@ package app.echoirx.di
 import android.content.Context
 import androidx.room.Room
 import app.echoirx.data.local.AppDatabase
+import app.echoirx.data.local.Migrations
 import app.echoirx.data.local.dao.DownloadDao
 import app.echoirx.data.local.dao.SearchHistoryDao
 import dagger.Module
@@ -24,6 +25,7 @@ object DatabaseModule {
         AppDatabase::class.java,
         AppDatabase.DATABASE_NAME
     )
+        .addMigrations(Migrations.MIGRATION_4_5)
         .fallbackToDestructiveMigration(false)
         .build()
 

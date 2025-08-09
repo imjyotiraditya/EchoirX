@@ -8,7 +8,7 @@ import java.util.UUID
 data class Download(
     @PrimaryKey
     val downloadId: String = UUID.randomUUID().toString(),
-    val searchResult: SearchResult,
+    val searchItem: SearchItem,
     val quality: String,
     val progress: Int = 0,
     val status: DownloadStatus = DownloadStatus.QUEUED,

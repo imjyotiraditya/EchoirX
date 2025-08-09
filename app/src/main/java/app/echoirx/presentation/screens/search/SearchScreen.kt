@@ -69,7 +69,7 @@ import app.echoirx.R
 import app.echoirx.data.permission.PermissionType
 import app.echoirx.data.utils.extensions.formatErrorMessage
 import app.echoirx.data.utils.extensions.showSnackbar
-import app.echoirx.domain.model.SearchResult
+import app.echoirx.domain.model.SearchItem
 import app.echoirx.presentation.components.EmptyStateMessage
 import app.echoirx.presentation.components.TrackBottomSheet
 import app.echoirx.presentation.components.permission.PermissionBottomSheet
@@ -96,7 +96,7 @@ fun SearchScreen(
     val coroutineScope = rememberCoroutineScope()
     val lifecycleOwner = LocalLifecycleOwner.current
 
-    var selectedTrack by remember { mutableStateOf<SearchResult?>(null) }
+    var selectedTrack by remember { mutableStateOf<SearchItem?>(null) }
     var showBottomSheet by remember { mutableStateOf(false) }
     var showFilterBottomSheet by remember { mutableStateOf(false) }
     var showPermissionBottomSheet by remember { mutableStateOf(false) }

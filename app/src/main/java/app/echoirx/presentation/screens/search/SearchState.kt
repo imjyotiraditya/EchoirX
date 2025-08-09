@@ -8,14 +8,14 @@ import androidx.compose.material.icons.outlined.SurroundSound
 import androidx.compose.ui.graphics.vector.ImageVector
 import app.echoirx.R
 import app.echoirx.domain.model.SearchHistoryItem
-import app.echoirx.domain.model.SearchResult
+import app.echoirx.domain.model.SearchItem
 
 data class SearchState(
     val query: String = "",
     val searchType: SearchType = SearchType.TRACKS,
     val searchFilter: SearchFilter = SearchFilter(),
-    val results: List<SearchResult> = emptyList(),
-    val filteredResults: List<SearchResult> = emptyList(),
+    val results: List<SearchItem> = emptyList(),
+    val filteredResults: List<SearchItem> = emptyList(),
     val searchHistory: List<SearchHistoryItem> = emptyList(),
     val status: SearchStatus = SearchStatus.Empty,
     val error: String? = null,

@@ -7,7 +7,7 @@ import app.echoirx.data.media.AudioPreviewPlayer
 import app.echoirx.domain.model.AlbumDownloadContext
 import app.echoirx.domain.model.DownloadRequest
 import app.echoirx.domain.model.QualityConfig
-import app.echoirx.domain.model.SearchResult
+import app.echoirx.domain.model.SearchItem
 import app.echoirx.domain.repository.DownloadRepository
 import app.echoirx.domain.usecase.AlbumTracksUseCase
 import app.echoirx.domain.usecase.ProcessDownloadUseCase
@@ -31,12 +31,12 @@ class DetailsViewModel @Inject constructor(
 
     val isPreviewPlaying = audioPreviewPlayer.isPlaying
 
-    fun initializeWithItem(item: SearchResult) {
+    fun initializeWithItem(item: SearchItem) {
         _state.update { it.copy(item = item) }
         loadAlbumTracks(item.id)
     }
 
-    fun downloadTrack(track: SearchResult, config: QualityConfig) {
+    fun downloadTrack(track: SearchItem, config: QualityConfig) {
         viewModelScope.launch {
             try {
                 processDownloadUseCase(

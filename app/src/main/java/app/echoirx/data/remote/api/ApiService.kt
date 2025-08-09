@@ -1,7 +1,8 @@
 package app.echoirx.data.remote.api
 
 import app.echoirx.data.remote.dto.PlaybackResponseDto
-import app.echoirx.data.remote.dto.SearchResultDto
+import app.echoirx.data.remote.dto.SearchItemDto
+import app.echoirx.data.remote.dto.SearchResponseDto
 import app.echoirx.domain.repository.SettingsRepository
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -23,23 +24,27 @@ class ApiService @Inject constructor(
 ) {
     private suspend fun getBaseUrl(): String = settingsRepository.getServerUrl()
 
-    suspend fun search(query: String, type: String): List<SearchResultDto> =
+    suspend fun search(query: String, type: String): List<SearchItemDto> =
         withContext(Dispatchers.IO) {
             val baseUrl = getBaseUrl()
 
-            client.get("$baseUrl/search") {
+            val response = client.get("$baseUrl/search") {
                 parameter("query", query)
                 parameter("type", type)
-            }.body()
+            }.body<SearchResponseDto>()
+
+            response.items
         }
 
-    suspend fun getAlbumTracks(albumId: Long): List<SearchResultDto> =
+    suspend fun getAlbumTracks(albumId: Long): List<SearchItemDto> =
         withContext(Dispatchers.IO) {
             val baseUrl = getBaseUrl()
 
-            client.get("$baseUrl/album/tracks") {
+            val response = client.get("$baseUrl/album/tracks") {
                 parameter("id", albumId)
-            }.body()
+            }.body<SearchResponseDto>()
+
+            response.items
         }
 
     suspend fun getDownloadInfo(

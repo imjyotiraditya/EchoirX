@@ -110,7 +110,7 @@ fun DownloadBottomSheet(
                     horizontalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
                     TrackCover(
-                        url = download.searchResult.cover?.replace("80x80", "160x160"),
+                        url = download.searchItem.cover?.replace("80x80", "160x160"),
                         size = 72.dp
                     )
 
@@ -119,7 +119,7 @@ fun DownloadBottomSheet(
                         verticalArrangement = Arrangement.spacedBy(4.dp)
                     ) {
                         Text(
-                            text = download.searchResult.title,
+                            text = download.searchItem.title,
                             style = MaterialTheme.typography.titleLarge,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis
@@ -129,7 +129,7 @@ fun DownloadBottomSheet(
                             horizontalArrangement = Arrangement.spacedBy(8.dp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            if (download.searchResult.explicit) {
+                            if (download.searchItem.explicit) {
                                 Icon(
                                     painter = painterResource(R.drawable.ic_explicit),
                                     contentDescription = stringResource(R.string.cd_explicit_content),
@@ -138,7 +138,7 @@ fun DownloadBottomSheet(
                             }
 
                             Text(
-                                text = download.searchResult.artists.joinToString(", "),
+                                text = download.searchItem.artists.joinToString(", "),
                                 style = MaterialTheme.typography.bodyMedium,
                                 maxLines = 1,
                                 overflow = TextOverflow.Ellipsis

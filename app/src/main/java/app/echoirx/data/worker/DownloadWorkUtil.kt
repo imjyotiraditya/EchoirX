@@ -34,7 +34,7 @@ fun enqueueDownloadWork(
         .setInputData(
             workDataOf(
                 DownloadWorker.KEY_DOWNLOAD_ID to download.downloadId,
-                DownloadWorker.KEY_TRACK_ID to download.searchResult.id,
+                DownloadWorker.KEY_TRACK_ID to download.searchItem.id,
                 DownloadWorker.KEY_QUALITY to config.quality
             )
         )

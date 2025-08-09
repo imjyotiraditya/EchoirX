@@ -24,7 +24,7 @@ class ProcessDownloadUseCase @Inject constructor(
 
     private suspend fun processTrackDownload(request: DownloadRequest.Track) {
         val download = Download(
-            searchResult = request.track,
+            searchItem = request.track,
             quality = request.config.quality
         )
 
@@ -36,7 +36,7 @@ class ProcessDownloadUseCase @Inject constructor(
     private suspend fun processAlbumDownload(request: DownloadRequest.Album) {
         request.tracks.forEach { track ->
             val download = Download(
-                searchResult = track,
+                searchItem = track,
                 quality = request.config.quality,
                 albumId = request.album.id,
                 albumTitle = request.album.title,
