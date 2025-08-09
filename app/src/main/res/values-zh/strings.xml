@@ -162,7 +162,7 @@
     <string name="action_play_preview">播放预览</string>
     <string name="action_stop_preview">停止预览</string>
     <string name="action_retry_download">重试下载</string>
-    <string name="action_download_with_quality">下载中 (%1$s)</string>
+    <string name="action_download_with_quality">下载 (%1$s)</string>
     <string name="action_grant_permission">授予权限</string>
     <string name="action_skip">跳过</string>
 
