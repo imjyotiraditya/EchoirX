@@ -168,7 +168,7 @@
 
     <!-- Quality Labels -->
     <string name="quality_label_hires">Hi-Res</string>
-    <string name="quality_label_lossless">Lossless</string>
+    <string name="quality_label_lossless">无损</string>
     <string name="quality_label_cdq">CDQ</string>
     <string name="quality_label_dolby_ac3">Dolby EAC3</string>
     <string name="quality_label_dolby_ac4">Dolby AC4</string>
@@ -192,7 +192,7 @@
     <string name="file_format_title_only_display">标题</string>
 
     <!-- Hints -->
-    <string name="hint_search">搜索 %1$s…</string>
+    <string name="hint_search">搜索%1$s…</string>
     <string name="hint_server_url" translatable="false">https://example.com/api/echoir</string>
 
     <!-- Tooltips -->
