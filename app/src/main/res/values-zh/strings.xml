@@ -89,7 +89,7 @@
     <!-- Subtitles -->
     <string name="subtitle_save_cover_art">将专辑封面另存为文件</string>
     <string name="subtitle_save_lyrics">将歌词另存为文件</string>
-    <string name="subtitle_use_cloudflare_dns">如果你连接服务器时遇到了问题，可尝试开启此选项</string>
+    <string name="subtitle_use_cloudflare_dns">如果连接服务器时遇到了问题，可尝试开启此选项</string>
     <string name="subtitle_github">查看源代码或提交 issue</string>
     <string name="subtitle_telegram_community">加入群组交流并获取更新</string>
 
