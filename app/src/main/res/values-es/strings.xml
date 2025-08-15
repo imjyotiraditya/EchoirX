@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Nombre de la aplicación -->
+    <string name="app_name" translatable="false">EchoirX</string>
+
+    <!-- Navegación -->
+    <string name="nav_home">Inicio</string>
+    <string name="nav_settings">Ajustes</string>
+    <string name="nav_search">Buscar</string>
+    <string name="nav_details">Detalles</string>
+
+    <!-- Descripciones de contenido -->
+    <string name="cd_back_button">Volver</string>
+    <string name="cd_error">Error</string>
+    <string name="cd_search">Buscar</string>
+    <string name="cd_clear_search">Borrar búsqueda</string>
+    <string name="cd_filter_button">Filtrar resultados</string>
+    <string name="cd_download_button">Opciones de descarga</string>
+    <string name="cd_download_option">Opción de descarga: %s</string>
+    <string name="cd_explicit_content">Contenido explícito</string>
+    <string name="cd_dolby_atmos">Dolby Atmos compatible</string>
+    <string name="cd_track_image">Imagen de la pista</string>
+    <string name="cd_filter_quality">Opciones de filtro de calidad</string>
+    <string name="cd_filter_content">Opciones de filtro de contenido</string>
+    <string name="cd_play">Reproducir</string>
+    <string name="cd_delete">Eliminar</string>
+    <string name="cd_share">Compartir</string>
+    <string name="cd_history">Historial</string>
+
+    <!-- Mensajes Toast -->
+    <string name="toast_download_started">Descarga iniciada</string>
+    <string name="toast_download_failed">Descarga fallida</string>
+    <string name="toast_download_completed">Descarga completada</string>
+    <string name="toast_download_cancelled">Descarga cancelada</string>
+    <string name="toast_download_exists">La descarga ya existe</string>
+    <string name="toast_download_not_found">Descarga no encontrada</string>
+    <string name="toast_download_permission_denied">Permiso denegado</string>
+    <string name="toast_download_no_internet">Sin conexión a internet</string>
+    <string name="toast_download_invalid_url">URL inválida</string>
+    <string name="toast_download_unknown_error">Error desconocido</string>
+
+    <!-- Diálogos -->
+    <string name="dialog_title_download_options">Opciones de descarga</string>
+    <string name="dialog_message_download_options">Elige la calidad de descarga:</string>
+    <string name="dialog_button_download">Descargar</string>
+    <string name="dialog_button_cancel">Cancelar</string>
+
+    <!-- Ajustes -->
+    <string name="settings_title">Ajustes</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_theme_light">Claro</string>
+    <string name="settings_theme_dark">Oscuro</string>
+    <string name="settings_theme_system">Predeterminado del sistema</string>
+    <string name="settings_language">Idioma</string>
+    <string name="settings_language_english">Inglés</string>
+    <string name="settings_language_spanish">Español</string>
+    <string name="settings_language_french">Francés</string>
+    <string name="settings_language_german">Alemán</string>
+    <string name="settings_language_italian">Italiano</string>
+    <string name="settings_language_japanese">Japonés</string>
+    <string name="settings_language_korean">Coreano</string>
+    <string name="settings_language_chinese">Chino</string>
+
+    <!-- Acerca de -->
+    <string name="about_title">Acerca de</string>
+    <string name="about_version">Versión</string>
+    <string name="about_developer">Desarrollador</string>
+    <string name="about_github">GitHub</string>
+    <string name="about_license">Licencia</string>
+
+    <!-- Búsqueda -->
+    <string name="search_hint">Buscar...</string>
+    <string name="search_no_results">No se encontraron resultados</string>
+    <string name="search_error">Error de búsqueda</string>
+
+    <!-- Detalles -->
+    <string name="details_title">Detalles</string>
+    <string name="details_description">Descripción</string>
+    <string name="details_duration">Duración</string>
+    <string name="details_size">Tamaño</string>
+    <string name="details_artist">Artista</string>
+    <string name="details_album">Álbum</string>
+    <string name="details_genre">Género</string>
+    <string name="details_release_date">Fecha de lanzamiento</string>
+
+    <!-- Reproducción -->
+    <string name="playback_play">Reproducir</string>
+    <string name="playback_pause">Pausar</string>
+    <string name="playback_next">Siguiente</string>
+    <string name="playback_previous">Anterior</string>
+    <string name="playback_shuffle">Aleatorio</string>
+    <string name="playback_repeat">Repetir</string>
+
+    <!-- Errores -->
+    <string name="error_title">Error</string>
+    <string name="error_message">Ocurrió un error</string>
+    <string name="error_button_retry">Reintentar</string>
+
+</resources>
