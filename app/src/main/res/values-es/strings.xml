@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!-- Nombre de la aplicación -->
-    <string name="app_name" translatable="false">EchoirX</string>
-
     <!-- Navegación -->
     <string name="nav_home">Inicio</string>
-    <string name="nav_settings">Ajustes</string>
+    <string name="nav_settings">Configuración</string>
     <string name="nav_search">Buscar</string>
     <string name="nav_details">Detalles</string>
 
@@ -14,87 +10,188 @@
     <string name="cd_back_button">Volver</string>
     <string name="cd_error">Error</string>
     <string name="cd_search">Buscar</string>
-    <string name="cd_clear_search">Borrar búsqueda</string>
+    <string name="cd_clear_search">Limpiar búsqueda</string>
     <string name="cd_filter_button">Filtrar resultados</string>
     <string name="cd_download_button">Opciones de descarga</string>
     <string name="cd_download_option">Opción de descarga: %s</string>
     <string name="cd_explicit_content">Contenido explícito</string>
-    <string name="cd_dolby_atmos">Dolby Atmos compatible</string>
-    <string name="cd_track_image">Imagen de la pista</string>
+    <string name="cd_dolby_atmos">Compatible con Dolby Atmos</string>
+    <string name="cd_track_image">Imagen de pista</string>
     <string name="cd_filter_quality">Opciones de filtro de calidad</string>
     <string name="cd_filter_content">Opciones de filtro de contenido</string>
     <string name="cd_play">Reproducir</string>
     <string name="cd_delete">Eliminar</string>
     <string name="cd_share">Compartir</string>
     <string name="cd_history">Historial</string>
+    <string name="cd_play_preview">Reproducir vista previa</string>
+    <string name="cd_stop_preview">Detener vista previa</string>
+    <string name="cd_retry">Reintentar</string>
+    <string name="cd_delete_search">Eliminar búsqueda</string>
+    <string name="cd_clear">Limpiar</string>
 
-    <!-- Mensajes Toast -->
-    <string name="toast_download_started">Descarga iniciada</string>
-    <string name="toast_download_failed">Descarga fallida</string>
-    <string name="toast_download_completed">Descarga completada</string>
-    <string name="toast_download_cancelled">Descarga cancelada</string>
-    <string name="toast_download_exists">La descarga ya existe</string>
-    <string name="toast_download_not_found">Descarga no encontrada</string>
-    <string name="toast_download_permission_denied">Permiso denegado</string>
-    <string name="toast_download_no_internet">Sin conexión a internet</string>
-    <string name="toast_download_invalid_url">URL inválida</string>
-    <string name="toast_download_unknown_error">Error desconocido</string>
+    <!-- Etiquetas -->
+    <string name="label_both">Ambos</string>
+    <string name="label_explicit">Explícito</string>
+    <string name="label_tracks">Pistas</string>
+    <string name="label_albums">Álbumes</string>
+    <string name="label_clean">Limpio</string>
+    <string name="label_unknown">Desconocido</string>
+    <string name="label_queued">En cola</string>
+    <string name="label_server_url">URL del servidor</string>
+    <string name="label_processing">Procesando</string>
+    <string name="label_completed">Completado</string>
+    <string name="label_failed">Fallido</string>
+    <string name="label_file_missing">Archivo no encontrado</string>
+    <string name="label_deleted">Eliminado</string>
+
+    <!-- Títulos -->
+    <string name="title_active_downloads">Descargas activas</string>
+    <string name="title_download_history">Historial de descargas</string>
+    <string name="title_file_naming_format">Formato de nombre de archivo</string>
+    <string name="title_storage">Almacenamiento</string>
+    <string name="title_data">Datos</string>
+    <string name="title_about">Acerca de</string>
+    <string name="title_quality">Calidad</string>
+    <string name="title_content">Contenido</string>
+    <string name="title_download_location">Ubicación de descarga</string>
+    <string name="title_server">Servidor</string>
+    <string name="title_server_recommendation">Configuración de servidor requerida</string>
+    <string name="title_clear_data">Limpiar datos</string>
+    <string name="title_reset_settings">Restablecer configuración</string>
+    <string name="title_filter_options">Opciones de filtro</string>
+    <string name="title_recent_searches">Búsquedas recientes</string>
+    <string name="title_clear_search_history">Limpiar historial de búsqueda</string>
+    <string name="title_save_cover_art">Guardar carátula del álbum</string>
+    <string name="title_save_lyrics">Guardar letra de la canción</string>
+    <string name="title_include_track_number">Incluir número de pista</string>
+    <string name="title_use_cloudflare_dns">Usar DNS de Cloudflare</string>
+    <string name="title_github">GitHub</string>
+    <string name="title_telegram_community">Comunidad de Telegram</string>
+
+    <!-- Permisos -->
+    <string name="permission_storage_title">Acceso al almacenamiento</string>
+    <string name="permission_manage_storage_title">Administrar almacenamiento</string>
+    <string name="permission_post_notifications_title">Notificaciones</string>
+    <string name="permission_notification_listener_title">Detección de medios</string>
+
+    <!-- Descripciones de permisos -->
+    <string name="permission_storage_description">EchoirX necesita permiso de acceso al almacenamiento para guardar archivos de música descargados.</string>
+    <string name="permission_manage_storage_description">En Android 11+, EchoirX necesita un permiso especial para administrar archivos, lo que permite una mejor organización de las descargas.</string>
+    <string name="permission_post_notifications_description">Recibir notificaciones sobre el progreso de las descargas. Puedes desactivar tipos específicos más tarde desde la configuración.</string>
+    <string name="permission_notification_listener_description">Permitir que EchoirX detecte la música que se está reproduciendo y sugiera descargas. Esta función es opcional.</string>
+
+    <!-- Subtítulos -->
+    <string name="subtitle_save_cover_art">Guardar imagen de portada como archivo separado</string>
+    <string name="subtitle_save_lyrics">Guardar letra de la canción como archivo separado</string>
+    <string name="subtitle_use_cloudflare_dns">Activa esta opción si tienes problemas de conexión o acceso a los servidores</string>
+    <string name="subtitle_github">Ver código fuente y reportar problemas</string>
+    <string name="subtitle_telegram_community">Únete a nuestra comunidad para soporte y actualizaciones</string>
+
+    <!-- Mensajes -->
+    <string name="msg_downloads_empty">No hay descargas aún</string>
+    <string name="msg_downloads_empty_desc">Las pistas descargadas aparecerán aquí</string>
+    <string name="msg_search_empty">Buscar música</string>
+    <string name="msg_search_empty_desc">Introduce el nombre de un artista, álbum o pista para comenzar a buscar</string>
+    <string name="msg_search_no_results">No se encontraron resultados</string>
+    <string name="msg_search_no_results_desc">Intenta buscar con palabras diferentes</string>
+    <string name="msg_search_no_results_filters">No hay resultados que coincidan</string>
+    <string name="msg_search_no_results_filters_desc">Intenta modificar la configuración de filtros</string>
+    <string name="msg_unknown_error">Ocurrió un error desconocido</string>
+    <string name="msg_download_started">Descarga iniciada en calidad %1$s</string>
+    <string name="msg_clear_data_subtitle">Limpiar historial de descargas y caché</string>
+    <string name="msg_reset_settings_subtitle">Restaurar toda la configuración a valores predeterminados</string>
+    <string name="msg_about_version">Versión %s</string>
+    <string name="msg_file_not_found">Archivo no encontrado</string>
+    <string name="msg_no_player_available">No hay reproductor de música disponible</string>
+    <string name="msg_file_open_failed">No se pudo abrir el archivo</string>
+    <string name="msg_server_subtitle">Configurar URL del servidor personalizado</string>
+    <string name="msg_file_naming_desc">Elige cómo se nombrarán los archivos de descarga</string>
+    <string name="msg_server_recommendation">Estás usando una URL de servidor de prueba. Por favor, establece una URL de servidor real desde la pestaña de configuración para buscar y descargar.</string>
+    <string name="msg_spaces_will_be_removed">Los espacios se eliminarán automáticamente</string>
+    <string name="msg_file_deleted">Archivo eliminado</string>
+    <string name="msg_removed_from_history">Eliminado del historial de descargas</string>
+    <string name="msg_preview_error">No se pudo reproducir la vista previa</string>
+    <string name="msg_download_restarted">Descarga reiniciada</string>
+    <string name="msg_download_retry_failed">Error al reiniciar la descarga</string>
+    <string name="msg_no_search_history">No hay historial de búsqueda</string>
+    <string name="msg_no_search_history_desc">Las búsquedas recientes aparecerán aquí</string>
+    <string name="msg_clear_search_history_subtitle">Eliminar todas las búsquedas guardadas</string>
+    <string name="msg_no_media_playing">No se está reproduciendo ningún medio actualmente</string>
+    <string name="msg_searching_current_media">Buscando: %s</string>
+    <string name="msg_download_cancelled">Descarga cancelada</string>
+
+    <!-- Notificaciones -->
+    <string name="notification_channel_name">Descargas</string>
+    <string name="notification_channel_desc">Notificaciones de descarga de pistas</string>
+    <string name="notification_downloading">Descargando %1$s</string>
+    <string name="notification_processing">Procesando %1$s</string>
+    <string name="notification_complete">Descarga completada</string>
+    <string name="notification_failed">Descarga fallida</string>
+    <string name="notification_progress">Descargas en progreso</string>
+    <string name="notification_downloads_count">%d descargas en progreso</string>
 
     <!-- Diálogos -->
-    <string name="dialog_title_download_options">Opciones de descarga</string>
-    <string name="dialog_message_download_options">Elige la calidad de descarga:</string>
-    <string name="dialog_button_download">Descargar</string>
-    <string name="dialog_button_cancel">Cancelar</string>
+    <string name="dialog_reset_settings_title">¿Restablecer configuración?</string>
+    <string name="dialog_reset_settings_message">¿Estás seguro de que quieres restaurar toda la configuración a los valores predeterminados? Esta acción no se puede deshacer.</string>
+    <string name="dialog_clear_data_title">¿Limpiar datos?</string>
+    <string name="dialog_clear_data_message">¿Estás seguro de que quieres limpiar el historial de descargas y archivos temporales? No se puede deshacer.</string>
+    <string name="dialog_clear_history_title">¿Limpiar historial de búsqueda?</string>
+    <string name="dialog_clear_history_message">¿Estás seguro de que quieres limpiar el historial de búsqueda? No se puede deshacer.</string>
 
-    <!-- Ajustes -->
-    <string name="settings_title">Ajustes</string>
-    <string name="settings_theme">Tema</string>
-    <string name="settings_theme_light">Claro</string>
-    <string name="settings_theme_dark">Oscuro</string>
-    <string name="settings_theme_system">Predeterminado del sistema</string>
-    <string name="settings_language">Idioma</string>
-    <string name="settings_language_english">Inglés</string>
-    <string name="settings_language_spanish">Español</string>
-    <string name="settings_language_french">Francés</string>
-    <string name="settings_language_german">Alemán</string>
-    <string name="settings_language_italian">Italiano</string>
-    <string name="settings_language_japanese">Japonés</string>
-    <string name="settings_language_korean">Coreano</string>
-    <string name="settings_language_chinese">Chino</string>
+    <!-- Acciones -->
+    <string name="action_clear_search">Limpiar</string>
+    <string name="action_retry">Reintentar</string>
+    <string name="action_done">Hecho</string>
+    <string name="action_cancel">Cancelar</string>
+    <string name="action_reset">Restablecer</string>
+    <string name="action_clear">Limpiar</string>
+    <string name="action_clear_all">Limpiar todo</string>
+    <string name="action_save">Guardar</string>
+    <string name="action_reset_to_default">Restaurar a predeterminado</string>
+    <string name="action_open_settings">Ir a configuración</string>
+    <string name="action_open_in_player">Abrir en reproductor</string>
+    <string name="action_delete_file">Eliminar archivo</string>
+    <string name="action_delete_from_history">Eliminar del historial</string>
+    <string name="action_share">Compartir</string>
+    <string name="action_play_preview">Reproducir vista previa</string>
+    <string name="action_stop_preview">Detener vista previa</string>
+    <string name="action_retry_download">Reintentar descarga</string>
+    <string name="action_download_with_quality">Descargar (%1$s)</string>
+    <string name="action_grant_permission">Otorgar permiso</string>
+    <string name="action_skip">Omitir</string>
 
-    <!-- Acerca de -->
-    <string name="about_title">Acerca de</string>
-    <string name="about_version">Versión</string>
-    <string name="about_developer">Desarrollador</string>
-    <string name="about_github">GitHub</string>
-    <string name="about_license">Licencia</string>
+    <!-- Etiquetas de calidad -->
+    <string name="quality_label_hires">Alta resolución</string>
+    <string name="quality_label_lossless">Sin pérdida</string>
+    <string name="quality_label_cdq">Calidad CD</string>
+    <string name="quality_label_dolby_ac3">Dolby EAC3</string>
+    <string name="quality_label_dolby_ac4">Dolby AC4</string>
+    <string name="quality_label_aac_320">AAC 320</string>
+    <string name="quality_label_aac_96">AAC 96</string>
 
-    <!-- Búsqueda -->
-    <string name="search_hint">Buscar...</string>
-    <string name="search_no_results">No se encontraron resultados</string>
-    <string name="search_error">Error de búsqueda</string>
+    <!-- Descripciones de calidad -->
+    <string name="quality_desc_hires">Formato FLAC 24-bit/192kHz con la máxima calidad de audio</string>
+    <string name="quality_desc_lossless">Formato FLAC 16-bit/44.1kHz con calidad CD</string>
+    <string name="quality_desc_dolby_ac3">Formato E-AC-3 con audio envolvente Dolby Atmos</string>
+    <string name="quality_desc_dolby_ac4">Formato AC-4 con Dolby Atmos (recomendado)</string>
+    <string name="quality_desc_aac_320">Compresión de alta calidad a 320kbps</string>
+    <string name="quality_desc_aac_96">Compresión de calidad estándar a 96kbps</string>
 
-    <!-- Detalles -->
-    <string name="details_title">Detalles</string>
-    <string name="details_description">Descripción</string>
-    <string name="details_duration">Duración</string>
-    <string name="details_size">Tamaño</string>
-    <string name="details_artist">Artista</string>
-    <string name="details_album">Álbum</string>
-    <string name="details_genre">Género</string>
-    <string name="details_release_date">Fecha de lanzamiento</string>
+    <!-- Advertencias de calidad -->
+    <string name="quality_warning_aac_320">Al descargar 320, el servicio puede proporcionar ocasionalmente 96kbps basado en varios factores</string>
 
-    <!-- Reproducción -->
-    <string name="playback_play">Reproducir</string>
-    <string name="playback_pause">Pausar</string>
-    <string name="playback_next">Siguiente</string>
-    <string name="playback_previous">Anterior</string>
-    <string name="playback_shuffle">Aleatorio</string>
-    <string name="playback_repeat">Repetir</string>
+    <!-- Formatos de nombre de archivo -->
+    <string name="file_format_artist_title_display">Artista - Título</string>
+    <string name="file_format_title_artist_display">Título - Artista</string>
+    <string name="file_format_title_only_display">Solo título</string>
+
+    <!-- Pistas -->
+    <string name="hint_search">Buscar %1$s…</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_filter">Filtrar resultados de búsqueda</string>
 
     <!-- Errores -->
-    <string name="error_title">Error</string>
-    <string name="error_message">Ocurrió un error</string>
-    <string name="error_button_retry">Reintentar</string>
-
+    <string name="error_empty_server_url">La URL del servidor no puede estar vacía</string>
+    <string name="error_example_server">No se pudo conectar al servidor de prueba. Por favor, configura un servidor real desde configuración.</string>
 </resources>
